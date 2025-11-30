@@ -7,13 +7,12 @@ extends Panel
 func _ready():
 	button.visible = false
 	label.position.y = 140
-
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color(1, 1, 1, 0)
 	add_theme_stylebox_override("panel", style)
 
 	var tween = create_tween()
-	tween.tween_property(label, "position:y", -200, 1) # change this once done
+	tween.tween_property(label, "position:y", -200, 23) # change this once done
 
 	tween.finished.connect(_on_text_scroll_done)
 
