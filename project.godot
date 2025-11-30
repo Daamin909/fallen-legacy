@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Fallen Legacy"
-run/main_scene="uid://c27agqlf8yg53"
+run/main_scene="uid://cf83bg5rmhglp"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://da4dhc08ci7g4"]
+[gd_scene load_steps=38 format=3 uid="uid://da4dhc08ci7g4"]
 
 [ext_resource type="Texture2D" uid="uid://b3fvtm2kdlikx" path="res://assets/player/hero.png" id="1_n16vp"]
 [ext_resource type="Script" uid="uid://c7iaxy1gacmtx" path="res://scripts/player_playable_intro.gd" id="1_q61na"]
+[ext_resource type="Script" uid="uid://ctbcusaqam3o8" path="res://scripts/playable_intro.gd" id="1_reuxx"]
 [ext_resource type="PackedScene" uid="uid://v8atg30iy5e6" path="res://scenes/master.tscn" id="2_lrjl6"]
 [ext_resource type="Texture2D" uid="uid://da1od3wy0nt7d" path="res://assets/caves/background4b.png" id="3_lrjl6"]
 [ext_resource type="Texture2D" uid="uid://bllityuwm5f6g" path="res://assets/caves/background1.png" id="4_nigbl"]
@@ -1100,6 +1101,9 @@ texture = ExtResource("5_myt7l")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_myt7l")
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_m0vej"]
+b = Vector2(430, 0)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_oa15m"]
 atlas = ExtResource("7_q61na")
 region = Rect2(0, 0, 150, 150)
@@ -1140,22 +1144,7 @@ animations = [{
 size = Vector2(62, 50)
 
 [node name="playable_intro" type="Node2D"]
-
-[node name="player_playable_intro" type="CharacterBody2D" parent="."]
-z_index = 2
-position = Vector2(-119, 20)
-script = ExtResource("1_q61na")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player_playable_intro"]
-texture_filter = 1
-position = Vector2(1, -23)
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_q61na")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_playable_intro"]
-position = Vector2(0, -17.5)
-shape = SubResource("RectangleShape2D_dlkwj")
+script = ExtResource("1_reuxx")
 
 [node name="master" parent="." instance=ExtResource("2_lrjl6")]
 z_index = 3
@@ -1176,10 +1165,33 @@ position = Vector2(15, 1)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_nigbl")
 
+[node name="player_playable_intro" type="CharacterBody2D" parent="."]
+z_index = 2
+position = Vector2(-119, 20)
+script = ExtResource("1_q61na")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player_playable_intro"]
+texture_filter = 1
+position = Vector2(1, -23)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_q61na")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_playable_intro"]
+position = Vector2(0, -17.5)
+shape = SubResource("RectangleShape2D_dlkwj")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_n16vp")
 format = 2
 layer_0/tile_data = PackedInt32Array(131071, 3145728, 1, 65536, 3145728, 1, 65537, 3211264, 1, 65538, 3276800, 1, 65539, 3342336, 1, 65540, 3407872, 1, 65541, 3473408, 1, 65542, 3538944, 1, 65543, 3604480, 1, 65544, 3604480, 1, 65545, 3604480, 1, 131070, 3080192, 1, 65546, 3670016, 1, 65547, 3735552, 1, 131072, 3604480, 6, 196608, 3604480, 7, 262144, 3604480, 8, 131073, 3670016, 6, 196609, 3670016, 7, 262145, 3670016, 8, 131074, 3735552, 6, 196610, 3735552, 7, 262146, 3735552, 8, 131079, 3604480, 6, 196615, 3604480, 7, 262151, 3604480, 8, 131080, 3670016, 6, 196616, 3670016, 7, 262152, 3670016, 8, 131081, 3735552, 6, 196617, 3735552, 7, 262153, 3735552, 8, 327687, 3604480, 6, 393223, 3604480, 7, 458759, 3604480, 8, 327688, 3670016, 6, 393224, 3670016, 7, 458760, 3670016, 8, 327689, 3735552, 6, 393225, 3735552, 7, 458761, 3735552, 8, 131060, 2490368, 15, 131061, 2555904, 15, 196597, 2555904, 16, 131062, 2621440, 15, 196598, 2621440, 16, 131063, 2621440, 268435471, 196599, 2686976, 16, 131067, 2490368, 268435471, 131066, 2555904, 268435471, 131065, 2621440, 268435471, 131064, 2621440, 15, 196602, 2555904, 268435472, 196601, 2621440, 268435472, 196600, 2686976, 268435472, 327680, 3604480, 6, 393216, 3604480, 7, 458752, 3604480, 8, 327681, 3670016, 6, 393217, 3670016, 7, 458753, 3670016, 8, 327682, 3735552, 6, 393218, 3735552, 7, 458754, 3735552, 8)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-119, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-79, 89)
+shape = SubResource("SegmentShape2D_m0vej")
 
 [node name="corruptor" type="CharacterBody2D" parent="."]
 position = Vector2(134, 20)
@@ -1196,4 +1208,5 @@ flip_h = true
 position = Vector2(-17, -30)
 shape = SubResource("RectangleShape2D_reuxx")
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="corruptor/Area2D" to="corruptor" method="_on_area_2d_body_entered"]
