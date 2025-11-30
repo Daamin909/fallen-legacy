@@ -160,8 +160,7 @@ texture_filter = 1
 position = Vector2(1, -23)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_cs1tg")
-animation = &"jump"
-frame_progress = 0.22418201
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -17.5)

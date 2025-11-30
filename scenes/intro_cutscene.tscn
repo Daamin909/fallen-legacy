@@ -1,5 +1,10 @@
-[gd_scene format=3 uid="uid://corw1u4vrfylr"]
+[gd_scene load_steps=2 format=3 uid="uid://corw1u4vrfylr"]
+
+[ext_resource type="Texture2D" uid="uid://c8ft7f81jv2ji" path="res://icon.svg" id="1_vuduy"]
 
 [node name="intro_cutscene" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vuduy")
