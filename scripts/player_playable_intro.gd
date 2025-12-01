@@ -42,3 +42,22 @@ func _physics_process(delta: float) -> void:
 			anim.play("fall")
 
 	move_and_slide()
+
+@export var dialogue_start: String = "start"
+
+const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
+
+func _ready() -> void:
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+
+	var balloon: Node = Balloon.instantiate()
+	get_parent().call_deferred("add_child", balloon)
+
+	balloon.call_deferred("start", load("res://dialogues/playable_intro.dialogue"), dialogue_start)
+
+
+func _on_dialogue_ended(_resource):
+	# Dialogue is fully finished → do your XYZ here
+	print("dialogue ended")
+	# example:
+	# get_tree().change_scene_to_file("res://scenes/whatever.tscn")

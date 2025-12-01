@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://khoncg4fv6x6"
+path="res://.godot/imported/playable_intro.dialogue-ffc6330cc6f0f2d8049d8032bf4f70f5.tres"
+
+[deps]
+
+source_file="res://dialogues/playable_intro.dialogue"
+dest_files=["res://.godot/imported/playable_intro.dialogue-ffc6330cc6f0f2d8049d8032bf4f70f5.tres"]
+
+[params]
+
+defaults=true
