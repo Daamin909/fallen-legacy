@@ -12,6 +12,7 @@ func _physics_process(delta: float) -> void:
 
 	# Jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		#DialogueManager.show_example_dialogue_balloon(load("res://dialogues/intro.dialogue"),"start")
 		velocity.y = JUMP_VELOCITY
 
 	# Movement

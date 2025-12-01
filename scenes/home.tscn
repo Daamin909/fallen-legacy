@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c27agqlf8yg53"]
+[gd_scene load_steps=26 format=3 uid="uid://c27agqlf8yg53"]
 
 [ext_resource type="Texture2D" uid="uid://2e2yjeckvlcx" path="res://assets/world/forgotten_forest_example_tileset.png" id="1_w18ys"]
 [ext_resource type="PackedScene" uid="uid://d1hwhi5tf440x" path="res://scenes/player.tscn" id="2_reixx"]
@@ -12,10 +12,21 @@
 [ext_resource type="Texture2D" uid="uid://27tewkpvt2wa" path="res://assets/more thingies/BG Elements/BG Elements_BG- SKy.png" id="7_vc333"]
 [ext_resource type="Texture2D" uid="uid://dhswwvus8pa43" path="res://assets/more thingies/BG Elements/BG Elements_BG MOuntain 2.png" id="8_hhep5"]
 [ext_resource type="Texture2D" uid="uid://cow8eh6wswnus" path="res://assets/more thingies/BG Elements/BG Elements_BG MOuntain 3.png" id="9_cmjdo"]
+[ext_resource type="PackedScene" uid="uid://bdusi2d5l1lsd" path="res://scenes/helpers/actionable.tscn" id="15_aish6"]
 [ext_resource type="Texture2D" uid="uid://dfukvd3kidctx" path="res://assets/more thingies/BG Elements/BG Elements_BG Mountain 1.png" id="15_o7pnx"]
 [ext_resource type="PackedScene" uid="uid://bvx6jgwlkjxxk" path="res://scenes/villagers/man.tscn" id="15_rpgsi"]
 [ext_resource type="AudioStream" uid="uid://d3xy2xar3gwvh" path="res://assets/custom/bgmusic.mp3" id="16_ju5sp"]
 [ext_resource type="Texture2D" uid="uid://umk1msod5se8" path="res://assets/houses/housebrickdoor.png" id="16_o7pnx"]
+
+[sub_resource type="GDScript" id="GDScript_ju5sp"]
+script/source = "extends Node2D
+
+
+func _ready():
+	var p = $AudioStreamPlayer2D
+	p.stream.set_loop(true)
+	p.play()
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_w18ys")
@@ -9713,7 +9724,11 @@ texture = ExtResource("5_o7pnx")
 [sub_resource type="TileSet" id="TileSet_o7pnx"]
 sources/2 = SubResource("TileSetAtlasSource_ju5sp")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snnha"]
+size = Vector2(25.200024, 35.8)
+
 [node name="Home" type="Node2D"]
+script = SubResource("GDScript_ju5sp")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(44, 12)
@@ -9798,13 +9813,20 @@ position = Vector2(4010, -336)
 texture = ExtResource("15_o7pnx")
 
 [node name="man" parent="." instance=ExtResource("15_rpgsi")]
+z_index = 1
 position = Vector2(352, 29)
+
+[node name="actionable" parent="man" instance=ExtResource("15_aish6")]
+dialogue_start = "start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="man/actionable"]
+position = Vector2(0.19999695, -17.699997)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_snnha")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_ju5sp")
 volume_db = -10.0
-autoplay = true
-parameters/looping = true
 
 [node name="Housebrickdoor" type="Sprite2D" parent="."]
 position = Vector2(1984, -148)
