@@ -4,6 +4,7 @@ const SPEED = 250.0
 const JUMP_VELOCITY = -250.0
 
 @onready var anim = $AnimatedSprite2D
+@onready var master := get_parent().get_node("master")
 
 func _physics_process(delta: float) -> void:
 	# Gravity
@@ -57,7 +58,6 @@ func _ready() -> void:
 
 
 func _on_dialogue_ended(_resource):
-	# Dialogue is fully finished → do your XYZ here
-	print("dialogue ended")
-	# example:
-	# get_tree().change_scene_to_file("res://scenes/whatever.tscn")
+	
+	await master.move_to(Vector2(6, 16))
+	#master.move_to(Vector2(70,200))

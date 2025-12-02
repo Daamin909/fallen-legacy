@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://da4dhc08ci7g4"]
+[gd_scene load_steps=39 format=3 uid="uid://da4dhc08ci7g4"]
 
 [ext_resource type="Texture2D" uid="uid://b3fvtm2kdlikx" path="res://assets/player/hero.png" id="1_n16vp"]
 [ext_resource type="Script" uid="uid://c7iaxy1gacmtx" path="res://scripts/player_playable_intro.gd" id="1_q61na"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d4lnty5podkwk" path="res://assets/caves/mainlev_build.png" id="5_myt7l"]
 [ext_resource type="Script" uid="uid://clykkavv7ct1c" path="res://scripts/corruptor_intro.gd" id="7_dlkwj"]
 [ext_resource type="Texture2D" uid="uid://d05hjl53guqyb" path="res://assets/enemies/Skeleton/Idle.png" id="7_q61na"]
+[ext_resource type="AudioStream" uid="uid://d3xy2xar3gwvh" path="res://assets/custom/bgmusic.mp3" id="10_m0vej"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("1_n16vp")
@@ -156,7 +157,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlkwj"]
-size = Vector2(6, 25)
+size = Vector2(6, 26)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_myt7l"]
 texture = ExtResource("5_myt7l")
@@ -429,7 +430,7 @@ texture = ExtResource("5_myt7l")
 3:15/0 = 0
 3:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:15/0 = 0
-4:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -3.1160526, -6.0342607, -3.412819, -1.4838352, -5.4901876, 3.8579693, -8, 8)
 6:15/0 = 0
 6:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:15/0 = 0
@@ -443,7 +444,7 @@ texture = ExtResource("5_myt7l")
 36:15/0 = 0
 36:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 38:15/0 = 0
-38:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+38:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 5.292343, -8, -1.9289837, -3.8579702, -8, -5.2428827, -8, 8)
 39:15/0 = 0
 39:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 40:15/0 = 0
@@ -455,7 +456,7 @@ texture = ExtResource("5_myt7l")
 2:16/0 = 0
 2:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:16/0 = 0
-3:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 5.292343, -8, -1.9289837, -3.8579702, -8, -5.2428827, -8, 8)
 12:16/0 = 0
 14:16/0 = 0
 16:16/0 = 0
@@ -1167,18 +1168,18 @@ texture = ExtResource("4_nigbl")
 
 [node name="player_playable_intro" type="CharacterBody2D" parent="."]
 z_index = 2
-position = Vector2(-144, 20)
+position = Vector2(-143, 20)
 script = ExtResource("1_q61na")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player_playable_intro"]
 texture_filter = 1
-position = Vector2(1, -23)
+position = Vector2(1, -23.5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_q61na")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_playable_intro"]
-position = Vector2(0, -17.5)
+position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_dlkwj")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1207,6 +1208,12 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="corruptor/Area2D"]
 position = Vector2(-17, -30)
 shape = SubResource("RectangleShape2D_reuxx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_m0vej")
+volume_db = -10.602
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="corruptor/Area2D" to="corruptor" method="_on_area_2d_body_entered"]

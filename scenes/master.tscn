@@ -1,5 +1,6 @@
-[gd_scene load_steps=44 format=3 uid="uid://v8atg30iy5e6"]
+[gd_scene load_steps=45 format=3 uid="uid://v8atg30iy5e6"]
 
+[ext_resource type="Script" uid="uid://c78kftvf70o7x" path="res://scripts/master.gd" id="1_q3f5g"]
 [ext_resource type="Texture2D" uid="uid://c3ywkakg44x0g" path="res://assets/samurai/Sprites/ATTACK 1.png" id="2_q3f5g"]
 [ext_resource type="Texture2D" uid="uid://cafrp5knv027y" path="res://assets/samurai/Sprites/HURT.png" id="3_2o3k7"]
 [ext_resource type="Texture2D" uid="uid://dyp7i22d1em8k" path="res://assets/samurai/Sprites/IDLE.png" id="4_kjytq"]
@@ -288,10 +289,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
-size = Vector2(9.75, 24.875)
+size = Vector2(9.75, 28.4375)
 
 [node name="master" type="CharacterBody2D"]
 position = Vector2(1, 1)
+script = ExtResource("1_q3f5g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -300,5 +302,5 @@ sprite_frames = SubResource("SpriteFrames_cs1tg")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -19)
+position = Vector2(0, -17.21875)
 shape = SubResource("RectangleShape2D_3vyb7")
