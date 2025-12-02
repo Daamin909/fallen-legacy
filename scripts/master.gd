@@ -8,9 +8,13 @@ extends CharacterBody2D
 var target_position: Vector2 = Vector2.ZERO
 var moving: bool = false
 
+func _ready() -> void:
+	anim.play("idle")
+
 func move_to(pos: Vector2) -> void:
 	target_position = pos
 	moving = true
+
 
 func _physics_process(delta: float) -> void:
 	var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -18,8 +22,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 
 	if not moving:
-		if is_on_floor():
-			_play_idle()
 		move_and_slide()
 		return
 
@@ -34,6 +36,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 	var dir: float = sign(dx)
+	anim.flip_h = dir < 0
 	velocity.x = dir * speed
 	_play_run()
 
@@ -59,11 +62,10 @@ func should_jump(dir: float) -> bool:
 	var front_query = PhysicsRayQueryParameters2D.create(front_from, front_to)
 	front_query.exclude = [self]
 	var front_hit = ss.intersect_ray(front_query)
-	if not front_hit.empty():
+	if not front_hit == {}:
 		return true
 
 	return false
-
 
 func _play_idle():
 	if anim.animation != "idle":
