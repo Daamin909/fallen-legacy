@@ -50,14 +50,16 @@ const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 
 func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
-
 	var balloon: Node = Balloon.instantiate()
 	get_parent().call_deferred("add_child", balloon)
-
 	balloon.call_deferred("start", load("res://dialogues/playable_intro.dialogue"), dialogue_start)
 
 
 func _on_dialogue_ended(_resource):
-	
+
 	await master.move_to(Vector2(6, 16))
+	var balloon: Node = Balloon.instantiate()
+	get_parent().call_deferred("add_child", balloon)
+	await get_tree().create_timer(1).timeout
+	balloon.call_deferred("start", load("res://dialogues/playable_intro_confront.dialogue"), dialogue_start)
 	#master.move_to(Vector2(70,200))
