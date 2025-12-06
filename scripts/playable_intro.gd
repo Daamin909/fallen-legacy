@@ -106,7 +106,7 @@ func _on_confront_ended(_resource):
 	_shake_camera(90.0)
 	await get_tree().create_timer(0.7	).timeout
 	_shake_camera(120.0)
-	get_tree().change_scene_to_file("res://scenes/home.tscn")
+	get_tree().change_scene_to_file("res://scenes/home_village.tscn")
 
 func spawn_master_ghosts() -> void:
 	var target_positions = [
