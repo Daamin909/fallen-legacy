@@ -7,7 +7,7 @@ func _ready():
 	$VBoxContainer/Button2.pressed.connect(on_quit_pressed)
 
 func on_start_pressed():
-	get_tree().change_scene_to_file("res://scenes/intro_cutscene.tscn")
+	SceneManager.change_scene("res://scenes/intro_cutscene.tscn")
 
 func on_quit_pressed():
 	get_tree().quit()

@@ -12,7 +12,7 @@ func _ready():
 	add_theme_stylebox_override("panel", style)
 
 	var tween = create_tween()
-	tween.tween_property(label, "position:y", -200, 23) # change this once done
+	tween.tween_property(label, "position:y", -200, 23.5) # change this once done
 
 	tween.finished.connect(_on_text_scroll_done)
 
@@ -21,4 +21,4 @@ func _on_text_scroll_done():
 	button.pressed.connect(_button_pressed)
 	
 func _button_pressed():
-	get_tree().change_scene_to_file("res://scenes/playable_intro.tscn")
+	SceneManager.change_scene("res://scenes/playable_intro.tscn")

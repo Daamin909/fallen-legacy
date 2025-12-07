@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://c27agqlf8yg53"]
+[gd_scene load_steps=30 format=3 uid="uid://c27agqlf8yg53"]
 
 [ext_resource type="Texture2D" uid="uid://2e2yjeckvlcx" path="res://assets/world/forgotten_forest_example_tileset.png" id="1_b835k"]
+[ext_resource type="Script" uid="uid://ffgbdpnudy0w" path="res://scripts/home_village.gd" id="1_tqnrb"]
 [ext_resource type="Texture2D" uid="uid://c7rbvbrk5s6qw" path="res://assets/more thingies/Props/Wooden Beams 512x512.png" id="2_tqnrb"]
 [ext_resource type="Texture2D" uid="uid://dcnp150xqsuny" path="res://assets/more thingies/Props/Village Props 64x64.png" id="3_d7j8o"]
 [ext_resource type="Texture2D" uid="uid://cnugiehvnkqyx" path="res://assets/more thingies/Props/Village Props 256x256.png" id="4_1vft4"]
@@ -19,16 +20,6 @@
 [ext_resource type="AudioStream" uid="uid://d3xy2xar3gwvh" path="res://assets/custom/bgmusic.mp3" id="17_alfu1"]
 [ext_resource type="Texture2D" uid="uid://umk1msod5se8" path="res://assets/houses/housebrickdoor.png" id="18_87guk"]
 [ext_resource type="PackedScene" uid="uid://0rgj3hysjr4r" path="res://scenes/villagers/woman.tscn" id="19_eauj7"]
-
-[sub_resource type="GDScript" id="GDScript_ju5sp"]
-script/source = "extends Node2D
-
-
-func _ready():
-	var p = $AudioStreamPlayer2D
-	p.stream.set_loop(true)
-	p.play()
-"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_b835k")
@@ -15432,11 +15423,14 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_ju5sp")
 sources/0 = SubResource("TileSetAtlasSource_kc6b6")
 
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_b835k"]
+points = PackedVector2Array(-1, 98, 63, 98, 63, 0, 31, -9, 0, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_snnha"]
 size = Vector2(25.200024, 35.8)
 
 [node name="Home Village" type="Node2D"]
-script = SubResource("GDScript_ju5sp")
+script = ExtResource("1_tqnrb")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(43, 13)
@@ -15467,7 +15461,7 @@ layer_3/tile_data = PackedInt32Array(-1113786, 6291456, 21, -1048250, 6291456, 2
 
 [node name="Player" parent="." instance=ExtResource("6_m2ldq")]
 z_index = 2
-position = Vector2(3695, 15)
+position = Vector2(-545, 41)
 scale = Vector2(3, 3)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -15478,6 +15472,14 @@ position_smoothing_enabled = true
 [node name="Housebrick" type="Sprite2D" parent="."]
 position = Vector2(-524, -149)
 texture = ExtResource("7_25fso")
+
+[node name="DoorArea" type="Area2D" parent="."]
+position = Vector2(-572, 1)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
+position = Vector2(-84, -69)
+shape = SubResource("ConvexPolygonShape2D_b835k")
 
 [node name="House2" type="Sprite2D" parent="."]
 z_index = -1
@@ -15551,3 +15553,6 @@ texture = ExtResource("18_87guk")
 [node name="woman" parent="." instance=ExtResource("19_eauj7")]
 z_index = 1
 position = Vector2(1393, 30)
+
+[connection signal="body_entered" from="DoorArea" to="." method="_on_door_area_body_entered"]
+[connection signal="input_event" from="DoorArea" to="." method="_on_door_area_input_event"]

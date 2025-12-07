@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmsj2oyhxxh4c"]
+
+[ext_resource type="Script" uid="uid://dsnyctb1crpi6" path="res://scripts/blink.gd" id="1_38bb2"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_38bb2")
+
+[node name="TopLid" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 1)
+
+[node name="BottomLid" type="ColorRect" parent="."]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -318.0
+offset_bottom = 6.0
+color = Color(0, 0, 0, 1)

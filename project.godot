@@ -17,6 +17,8 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SceneManager="*res://scripts/scene_manager.gd"
+PopupManager="*res://scripts/popup_manager.gd"
 
 [dialogue_manager]
 

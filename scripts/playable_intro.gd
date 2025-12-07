@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "player_playable_intro":
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		SceneManager.change_scene("res://scenes/game_over.tscn")
 
 
 func _ready() -> void:
@@ -106,7 +106,7 @@ func _on_confront_ended(_resource):
 	_shake_camera(90.0)
 	await get_tree().create_timer(0.7	).timeout
 	_shake_camera(120.0)
-	get_tree().change_scene_to_file("res://scenes/home_village.tscn")
+	SceneManager.change_scene("res://scenes/home.tscn")
 
 func spawn_master_ghosts() -> void:
 	var target_positions = [
