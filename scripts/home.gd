@@ -3,7 +3,6 @@ extends Node2D
 var home_village = "res://scenes/home_village.tscn"
 @onready var player_sprite = $Player/AnimatedSprite2D
 @onready var player = $Player
-# Called when the node enters the scene tree for the first time.
 
 func _ready():
 	SceneManager.preload_scene(home_village)
@@ -16,7 +15,6 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	pass
-
 
 func _set_initial_position():
 	player.position = Vector2(-280, -10)

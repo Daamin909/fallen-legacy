@@ -3,8 +3,6 @@ extends Area2D
 @export var dialogue_resource: DialogueResource
 @export var dialogue_start: String = "Start"
 
-
-
 const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 
 func action() -> void:

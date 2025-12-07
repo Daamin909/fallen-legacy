@@ -1,25 +1,31 @@
-extends Panel
-class_name TipPopup  # <- must be here
+extends CanvasLayer
+class_name TipPopup
 
-@onready var label: Label = $Label
-var hide_timer: SceneTreeTimer = null
+@onready var panel: Panel = $Panel
+@onready var label: Label = $Panel/Label
 
 func show_popup(text: String, duration: float = 3.0):
 	label.text = text
-	show()
-	position = Vector2(-300, 10)  # start offscreen
+	panel.show()
+	await get_tree().process_frame
+	
+	var screen_size = get_viewport().get_visible_rect().size
+	var panel_size = Vector2(215, 100)
+	var start_pos = Vector2(screen_size.x + 50, 10)
+	var end_pos = Vector2(screen_size.x - panel_size.x - 10, 10)
 
+	panel.global_position = start_pos
 
-
-	# Tween slide in
 	var tween = create_tween()
-	tween.tween_property(self, "position", Vector2(10, 10), 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(panel, "global_position", end_pos, 0.25)
+	var timer = get_tree().create_timer(duration)
+	timer.timeout.connect(_hide_popup)
 
-	# Hide after duration
-	hide_timer = get_tree().create_timer(duration)
-	hide_timer.timeout.connect(self._on_hide_timer_timeout)
 
-func _on_hide_timer_timeout():
-	var tween_out = create_tween()
-	tween_out.tween_property(self, "position", Vector2(-300, 10), 0.3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	tween_out.finished.connect(self.hide)
+func _hide_popup():
+	var screen_size = get_viewport().get_visible_rect().size
+	var exit_pos = Vector2(screen_size.x + 50, panel.global_position.y)
+
+	var tween = create_tween()
+	tween.tween_property(panel, "global_position", exit_pos, 0.25)
+	tween.finished.connect(panel.hide)

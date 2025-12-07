@@ -15,4 +15,4 @@ func _on_door_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: i
 
 func _on_door_area_body_entered(body: Node2D) -> void:
 	print(body)
-	PopupManager.show_popup("You picked up a sword!", 5.0)
+	PopupManager.show_popup("Click on the Door to Enter", 5.0)
