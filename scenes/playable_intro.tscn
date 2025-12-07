@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://d4lnty5podkwk" path="res://assets/caves/mainlev_build.png" id="5_myt7l"]
 [ext_resource type="Script" uid="uid://clykkavv7ct1c" path="res://scripts/corruptor_intro.gd" id="7_dlkwj"]
 [ext_resource type="Texture2D" uid="uid://d05hjl53guqyb" path="res://assets/enemies/Skeleton/Idle.png" id="7_q61na"]
-[ext_resource type="AudioStream" uid="uid://d3xy2xar3gwvh" path="res://assets/custom/bgmusic.mp3" id="10_m0vej"]
 [ext_resource type="Texture2D" uid="uid://sv6q7t86wpre" path="res://assets/enemies/Skeleton/Attack.png" id="10_q5b5n"]
 [ext_resource type="Texture2D" uid="uid://h76t4mo5mwy" path="res://assets/enemies/Skeleton/Death.png" id="11_uxbkw"]
 [ext_resource type="Texture2D" uid="uid://cantu0nme5g52" path="res://assets/enemies/Skeleton/Take Hit.png" id="12_cp6n7"]
@@ -17,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://ce7uh0nf3qo3x" path="res://assets/enemies/Skeleton/Walk.png" id="14_iex05"]
 [ext_resource type="AudioStream" uid="uid://cyj6vel7qeuy2" path="res://assets/custom/sword-swing.mp3" id="15_uxbkw"]
 [ext_resource type="AudioStream" uid="uid://d2jrrh8g5twm7" path="res://assets/custom/death.mp3" id="16_cp6n7"]
+[ext_resource type="AudioStream" uid="uid://cjleu3illhgl3" path="res://assets/custom/cave.wav" id="17_cp6n7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("1_n16vp")
@@ -1419,10 +1419,9 @@ stream = ExtResource("15_uxbkw")
 stream = ExtResource("16_cp6n7")
 
 [node name="normal_bg_music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_m0vej")
-volume_db = -10.602
+stream = ExtResource("17_cp6n7")
+volume_db = -6.7
 autoplay = true
-parameters/looping = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="corruptor/Area2D" to="corruptor" method="_on_area_2d_body_entered"]

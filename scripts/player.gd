@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_t"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
-			print("hello")
 			actionables[0].action()
 		
 	
@@ -63,3 +62,8 @@ func _physics_process(delta: float) -> void:
 			anim.play("fall")
 
 	move_and_slide()
+
+func _ready():
+	var p = $normal_bg_music
+	p.stream.set_loop(true)
+	p.play()
