@@ -22,4 +22,7 @@ func _set_initial_position():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		SceneManager.change_scene(home_village)
+		call_deferred("do_scene_change")
+
+func do_scene_change() -> void:
+	SceneManager.change_scene(home_village)

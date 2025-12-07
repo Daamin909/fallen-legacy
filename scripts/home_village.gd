@@ -13,6 +13,5 @@ func _on_door_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: i
 		SceneManager.change_scene(home)
 
 
-func _on_door_area_body_entered(body: Node2D) -> void:
-	print(body)
-	PopupManager.show_popup("Click on the Door to Enter", 5.0)
+func _on_door_area_body_entered(_body: Node2D) -> void:
+	PopupManager.show_popup("Click on the Door to Enter", 4.0)
