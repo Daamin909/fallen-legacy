@@ -3071,17 +3071,18 @@ layer_0/tile_data = PackedInt32Array(-851926, 131072, 268435469, -851927, 196608
 
 [node name="Player" parent="." instance=ExtResource("2_reixx")]
 z_index = 10
-position = Vector2(187.00002, -29.000004)
+position = Vector2(248.99997, -69)
+rotation = 1.5707964
 scale = Vector2(1.7, 1.7)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-2.35295, -32.352943)
 rotation = -1.8325958
 zoom = Vector2(3, 3)
-limit_left = -317
-limit_top = -259
-limit_right = 345
-limit_bottom = 85
+limit_left = -314
+limit_top = -271
+limit_right = 348
+limit_bottom = 73
 limit_smoothed = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
