@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://br73y8c1coqhy"
+path="res://.godot/imported/player_after_master_death.dialogue-f06fc5ee89e12a4f4bc4be8dce6710fb.tres"
+
+[deps]
+
+source_file="res://dialogues/player_after_master_death.dialogue"
+dest_files=["res://.godot/imported/player_after_master_death.dialogue-f06fc5ee89e12a4f4bc4be8dce6710fb.tres"]
+
+[params]
+
+defaults=true

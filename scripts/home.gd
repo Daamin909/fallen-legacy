@@ -5,7 +5,6 @@ var home_village = "res://scenes/home_village.tscn"
 @onready var player = $Player
 
 func _ready():
-	SceneManager.preload_scene(home_village)
 	if SceneManager.is_player_position_inside_home_right:
 		player_sprite.flip_h = true
 		SceneManager.is_player_position_inside_home_right = false
@@ -13,6 +12,9 @@ func _ready():
 		call_deferred("_set_initial_position")
 	pass
 
+func _do_thingy() -> void:
+	SceneManager.preload_scene(home_village)
+	
 func _process(_delta: float) -> void:
 	pass
 

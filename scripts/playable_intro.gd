@@ -1,6 +1,7 @@
 extends Node2D
 
 const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
+var home = "res://scenes/home.tscn"
 
 @onready var master := $master
 @onready var corruptor = $corruptor
@@ -10,7 +11,11 @@ const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 @export var dialogue_start: String = "start"
 @onready var cam: Camera2D = $Camera2D
 @onready var death: AudioStreamPlayer2D = $death
-
+@onready var player := $player_playable_intro
+@onready var dialogue_num := 1
+@onready var bg_music: AudioStreamPlayer2D = $normal_bg_music
+@onready var fight_music: AudioStreamPlayer2D = $fight_music
+@onready var fall_sound: AudioStreamPlayer2D = $fall
 @export var random_strength: float = 30.0
 @export var shake_fade: float = 5.0
 
@@ -60,8 +65,15 @@ func _on_dialogue_ended(_resource):
 
 	
 func _on_confront_ended(_resource):
+	DialogueManager.dialogue_ended.disconnect(_on_confront_ended)
+	fight_music.play()
+	bg_music.stop()
 	await master.move_to(Vector2(82,16))
-	
+
+	await SceneManager.preload_scene(home, true)
+	await SceneManager.preload_scene("res://scenes/home_village.tscn", true)
+
+
 	# First Attack
 	await get_tree().create_timer(0.5).timeout
 	corruptor_anim.play("attack")
@@ -94,7 +106,7 @@ func _on_confront_ended(_resource):
 	master_anim.play("idle")
 	corruptor_anim.play("attack")
 	await get_tree().create_timer(0.7	).timeout
-	_shake_camera(30.0)
+	_shake_camera(30.0)		
 	master_anim.play("death")
 	death.play()
 	spawn_master_ghosts()
@@ -106,7 +118,8 @@ func _on_confront_ended(_resource):
 	_shake_camera(90.0)
 	await get_tree().create_timer(0.7	).timeout
 	_shake_camera(120.0)
-	SceneManager.change_scene("res://scenes/home.tscn")
+	
+	_player_next_thing()
 
 func spawn_master_ghosts() -> void:
 	var target_positions = [
@@ -127,3 +140,73 @@ func spawn_master_ghosts() -> void:
 		tween.tween_property(g, "position", target_positions[i], 2.0)
 		tween.parallel().tween_property(g, "modulate:a", 0.0, 2.0)
 		tween.finished.connect(func(): g.queue_free())
+
+
+func _player_next_thing() -> void:
+	DialogueManager.dialogue_ended.connect(_on_next_thing_ended)
+	await get_tree().create_timer(1).timeout
+	var balloon: Node = Balloon.instantiate()
+	get_parent().call_deferred("add_child", balloon)
+	balloon.call_deferred("start", load("res://dialogues/player_after_master_death.dialogue"), dialogue_start)
+
+
+func _on_next_thing_ended(_resource) -> void:
+	DialogueManager.dialogue_ended.disconnect(_on_next_thing_ended)
+
+	await player.move_to(Vector2(72, 16))
+	await get_tree().create_timer(1).timeout
+
+	_shake_camera(90.0)
+	await _play_dialogue("res://dialogues/dialogue_1.dialogue")
+
+	_shake_camera(120.0)
+	await _play_dialogue("res://dialogues/dialogue_2.dialogue")
+
+	_shake_camera(180.0)
+	_faint_player()
+	await _play_dialogue("res://dialogues/dialogue_3.dialogue")
+
+	SceneManager.change_scene("res://scenes/home.tscn")
+	
+
+
+func _faint_player() -> void:
+	fall_sound.play()
+	player.velocity = Vector2.ZERO
+	player.set_physics_process(false)
+	var tween := get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(
+		player,
+		"rotation",
+		deg_to_rad(-90),
+		0.35
+	)
+	tween.parallel().tween_property(
+		player,
+		"position",
+		player.position + Vector2(-12, -6),
+		0.35
+	)
+
+	await tween.finished
+	
+func _play_dialogue(_path: String) -> void:
+	var balloon := Balloon.instantiate()
+	get_parent().add_child(balloon)
+
+	DialogueManager.dialogue_ended.connect(_on_temp_dialogue_end)
+
+	balloon.start(
+		load("res://dialogues/%s.dialogue" % dialogue_num),
+		dialogue_start
+	)
+
+	dialogue_num+=1	
+	await _dialogue_finished
+signal _dialogue_finished
+
+func _on_temp_dialogue_end(_resource) -> void:
+	DialogueManager.dialogue_ended.disconnect(_on_temp_dialogue_end)
+	emit_signal("_dialogue_finished")

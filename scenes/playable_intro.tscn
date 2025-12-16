@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://da4dhc08ci7g4"]
+[gd_scene load_steps=72 format=3 uid="uid://da4dhc08ci7g4"]
 
 [ext_resource type="Texture2D" uid="uid://b3fvtm2kdlikx" path="res://assets/player/hero.png" id="1_n16vp"]
 [ext_resource type="Script" uid="uid://c7iaxy1gacmtx" path="res://scripts/player_playable_intro.gd" id="1_q61na"]
@@ -17,6 +17,8 @@
 [ext_resource type="AudioStream" uid="uid://cyj6vel7qeuy2" path="res://assets/custom/sword-swing.mp3" id="15_uxbkw"]
 [ext_resource type="AudioStream" uid="uid://d2jrrh8g5twm7" path="res://assets/custom/death.mp3" id="16_cp6n7"]
 [ext_resource type="AudioStream" uid="uid://cjleu3illhgl3" path="res://assets/custom/cave.wav" id="17_cp6n7"]
+[ext_resource type="AudioStream" uid="uid://dij2wuobafboo" path="res://assets/custom/fall.mp3" id="17_iex05"]
+[ext_resource type="AudioStream" uid="uid://ca0l47b1kjqbf" path="res://assets/custom/groove.wav" id="18_uq3bw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vyb7"]
 atlas = ExtResource("1_n16vp")
@@ -1418,10 +1420,17 @@ stream = ExtResource("15_uxbkw")
 [node name="death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_cp6n7")
 
+[node name="fall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_iex05")
+
 [node name="normal_bg_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_cp6n7")
-volume_db = -6.7
+volume_db = -7.196
 autoplay = true
+
+[node name="fight_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_uq3bw")
+volume_db = -6.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="corruptor/Area2D" to="corruptor" method="_on_area_2d_body_entered"]

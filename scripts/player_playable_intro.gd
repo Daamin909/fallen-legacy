@@ -1,44 +1,76 @@
 extends CharacterBody2D
 
-const SPEED = 250.0
-const JUMP_VELOCITY = -250.0
+@export var speed: float = 250.0
+@export var jump_velocity: float = -250.0
 
-@onready var anim = $AnimatedSprite2D
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
-#func _physics_process(delta: float) -> void:
-	## Gravity
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-#
-	## Jump
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		##DialogueManager.show_example_dialogue_balloon(load("res://dialogues/intro.dialogue"),"start")
-		#velocity.y = JUMP_VELOCITY
-#
-	## Movement
-	#var direction := Input.get_axis("ui_left", "ui_right")
-#
-	#if direction != 0:
-		#velocity.x = direction * SPEED
-#
-		#anim.flip_h = direction < 0
-#
-		## RUN
-		#if anim.animation != "run":
-			#anim.play("run")
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-#
-		## IDLE (only when not moving)
-		#if is_on_floor():
-			#if anim.animation != "idle":
-				#anim.play("idle")
-#
-	## Jump / fall
-	#if not is_on_floor():
-		#if velocity.y < 0:
-			#anim.play("jump")
-		#else:
-			#anim.play("fall")
-#
-	#move_and_slide()
+var target_position: Vector2 = Vector2.ZERO
+var moving: bool = false
+
+func _ready() -> void:
+	anim.play("idle")
+
+func move_to(pos: Vector2) -> void:
+	target_position = pos
+	moving = true
+
+
+func _physics_process(delta: float) -> void:
+	var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	if not moving:
+		move_and_slide()
+		return
+
+	var dx: float = target_position.x - global_position.x
+	if abs(dx) <= 4.0:
+		velocity.x = 0
+		moving = false
+		_play_idle()
+		if is_on_floor():
+			global_position.x = target_position.x
+		move_and_slide()
+		return
+
+	var dir: float = sign(dx)
+	anim.flip_h = dir < 0
+	velocity.x = dir * speed
+	_play_run()
+
+	if is_on_floor() and should_jump(dir):
+		velocity.y = jump_velocity
+
+	move_and_slide()
+
+
+func should_jump(dir: float) -> bool:
+	var ss = get_world_2d().direct_space_state
+
+	var ground_from = global_position + Vector2(dir * 10, 4)
+	var ground_to = ground_from + Vector2(0, 28)
+	var ground_query = PhysicsRayQueryParameters2D.create(ground_from, ground_to)
+	ground_query.exclude = [self]
+	var ground_hit = ss.intersect_ray(ground_query)
+	if ground_hit == {}:
+		return true
+
+	var front_from = global_position + Vector2(dir * 10, -8)
+	var front_to = front_from + Vector2(dir * 18, -8)
+	var front_query = PhysicsRayQueryParameters2D.create(front_from, front_to)
+	front_query.exclude = [self]
+	var front_hit = ss.intersect_ray(front_query)
+	if not front_hit == {}:
+		return true
+
+	return false
+
+func _play_idle():
+	if anim.animation != "idle":
+		anim.play("idle")
+
+func _play_run():
+	if anim.animation != "run":
+		anim.play("run")

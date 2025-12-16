@@ -62,8 +62,3 @@ func _physics_process(delta: float) -> void:
 			anim.play("fall")
 
 	move_and_slide()
-
-func _ready():
-	var p = $normal_bg_music
-	p.stream.set_loop(true)
-	p.play()
