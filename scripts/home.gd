@@ -10,10 +10,10 @@ const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 
 func _ready():
 	if SceneManager.is_player_position_inside_home_right:
-		player.set_physics_process(false)
+		#player.set_physics_process(false)
 		player_sprite.flip_h = true
 		SceneManager.is_player_position_inside_home_right = false
-		_do_another_thingy()
+		#_do_another_thingy()
 	else:
 		call_deferred("_set_initial_position")
 	pass
