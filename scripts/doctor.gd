@@ -9,7 +9,7 @@ var target_position: Vector2 = Vector2.ZERO
 var moving: bool = false
 
 func _ready() -> void:
-	anim.play("idle_left")
+	anim.play("idle")
 
 func move_to(pos: Vector2) -> void:
 	target_position = pos

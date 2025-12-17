@@ -44,9 +44,12 @@ func do_scene_change() -> void:
 func _do_another_thingy() -> void:
 	await _play_dialogue("res://dialogues/faint_1.dialogue")
 	doc.move_to(Vector2(69, -16))
-	await _play_dialogue("res://dialogues/faint_1.dialogue")
-
-
+	doc_sprite.play("idle")
+	await _play_dialogue("res://dialogues/faint_1.5.dialogue")
+	player.set_physics_process(true)
+	player.move_to(Vector2(130, -10))
+	player.rotation_degrees = 0
+	doc_sprite.play("idle_right")
 	
 signal dialogue_finished
 
