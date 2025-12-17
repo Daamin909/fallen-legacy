@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cumphu7bdgin8"
+path="res://.godot/imported/faint_1.5.dialogue-918eadb5e9894fec4d35b5f401940a0c.tres"
+
+[deps]
+
+source_file="res://dialogues/faint_1.5.dialogue"
+dest_files=["res://.godot/imported/faint_1.5.dialogue-918eadb5e9894fec4d35b5f401940a0c.tres"]
+
+[params]
+
+defaults=true
