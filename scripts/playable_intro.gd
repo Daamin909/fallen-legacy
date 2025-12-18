@@ -1,7 +1,7 @@
 extends Node2D
 
 const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
-var home = "res://scenes/home.tscn"
+var home = "res://scenes/home_cutscene.tscn"
 
 @onready var master := $master
 @onready var corruptor = $corruptor
@@ -166,7 +166,7 @@ func _on_next_thing_ended(_resource) -> void:
 	_faint_player()
 	await _play_dialogue("res://dialogues/dialogue_3.dialogue")
 
-	SceneManager.change_scene("res://scenes/home.tscn")
+	SceneManager.change_scene("res://scenes/home_cutscene.tscn")
 	
 
 

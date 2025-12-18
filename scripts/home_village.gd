@@ -1,6 +1,6 @@
 extends Node2D
 
-var home = "res://scenes/home.tscn"
+var home = "res://scenes/home_cutscene.tscn"
 
 func _ready():
 	var p = $AudioStreamPlayer2D
