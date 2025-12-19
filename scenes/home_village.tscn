@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c27agqlf8yg53"]
+[gd_scene load_steps=48 format=3 uid="uid://c27agqlf8yg53"]
 
 [ext_resource type="Texture2D" uid="uid://2e2yjeckvlcx" path="res://assets/world/forgotten_forest_example_tileset.png" id="1_b835k"]
 [ext_resource type="Script" uid="uid://ffgbdpnudy0w" path="res://scripts/home_village.gd" id="1_tqnrb"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://d1hwhi5tf440x" path="res://scenes/player.tscn" id="6_m2ldq"]
 [ext_resource type="Texture2D" uid="uid://dqbfghxfiapa7" path="res://assets/houses/housebrick.png" id="7_25fso"]
 [ext_resource type="Texture2D" uid="uid://bl04yu688h2pj" path="res://assets/houses/house2.png" id="8_00lcy"]
+[ext_resource type="Script" uid="uid://blrdoykapgxrq" path="res://scripts/village_elder.gd" id="8_1vft4"]
 [ext_resource type="Texture2D" uid="uid://c7xhq7vqpdvsf" path="res://assets/houses/house3.png" id="9_tq17c"]
+[ext_resource type="Texture2D" uid="uid://d4ce81s6mujda" path="res://assets/custom/village_eder.png" id="9_ud4uv"]
 [ext_resource type="Texture2D" uid="uid://cyfeu4q8o5tfh" path="res://assets/houses/houseautre.png" id="10_6yoqh"]
 [ext_resource type="Texture2D" uid="uid://27tewkpvt2wa" path="res://assets/more thingies/BG Elements/BG Elements_BG- SKy.png" id="11_n7rsa"]
 [ext_resource type="Texture2D" uid="uid://dhswwvus8pa43" path="res://assets/more thingies/BG Elements/BG Elements_BG MOuntain 2.png" id="12_5oocf"]
@@ -15423,6 +15425,116 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_ju5sp")
 sources/0 = SubResource("TileSetAtlasSource_kc6b6")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vft4"]
+size = Vector2(25.599998, 340.40002)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fycn"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(0, 1200, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc333"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(240, 1200, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhep5"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(480, 1200, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmjdo"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(720, 1200, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu5fn"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(480, 240, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip4d6"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(720, 240, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppa51"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(960, 240, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc6b6"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(1200, 240, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdxxw"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(1440, 240, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k6s7"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(1680, 240, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqor2"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(0, 480, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qmde4"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(240, 480, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa7t7"]
+atlas = ExtResource("9_ud4uv")
+region = Rect2(480, 480, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m2ldq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fycn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc333")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhep5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmjdo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu5fn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip4d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppa51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kc6b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdxxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k6s7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqor2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qmde4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa7t7")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25fso"]
+size = Vector2(31.999998, 49.999996)
+
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_b835k"]
 points = PackedVector2Array(-1, 98, 63, 98, 63, 0, 31, -9, 0, 0)
 
@@ -15459,6 +15571,16 @@ layer_2/tile_data = PackedInt32Array(-523775, 4390912, 22, -458239, 4390912, 23,
 layer_3/name = "Layer3"
 layer_3/tile_data = PackedInt32Array(-1113786, 6291456, 21, -1048250, 6291456, 22, -982714, 6291456, 23, -1113785, 6356992, 21, -1048249, 6356992, 22, -982713, 6356992, 23, -917177, 6356992, 24, -851641, 6356992, 25, -786105, 6356992, 26, -720569, 6356992, 27, -655033, 6356992, 28, -589497, 6356992, 29, -1113784, 6422528, 21, -1048248, 6422528, 22, -982712, 6422528, 23, -917176, 6422528, 24, -851640, 6422528, 25, -786104, 6422528, 26, -720568, 6422528, 27, -655032, 6422528, 28, -589496, 6422528, 29, -1113783, 6488064, 21, -1048247, 6488064, 22, -982711, 6488064, 23, -917175, 6488064, 24, -851639, 6488064, 25, -786103, 6488064, 26, -720567, 6488064, 27, -655031, 6488064, 28, -589495, 6488064, 29, -1113782, 6553600, 21, -1048246, 6553600, 22, -982710, 6553600, 23, -917174, 6553600, 24, -851638, 6553600, 25, -786102, 6553600, 26, -720566, 6553600, 27, -655030, 6553600, 28, -589494, 6553600, 29, -1113781, 6619136, 21, -1048245, 6619136, 22, -982709, 6619136, 23, -917173, 6619136, 24, -851637, 6619136, 25, -786101, 6619136, 26, -720565, 6619136, 27, -655029, 6619136, 28, -589493, 6619136, 29, -1113780, 6684672, 21, -1048244, 6684672, 22, -982708, 6684672, 23, -917172, 6684672, 24, -851636, 6684672, 25, -786100, 6684672, 26, -720564, 6684672, 27, -655028, 6684672, 28, -589492, 6684672, 29, -1113779, 6750208, 21, -1048243, 6750208, 22, -982707, 6750208, 23, -917171, 6750208, 24, -851635, 6750208, 25, -786099, 6750208, 26, -720563, 6750208, 27, -655027, 6750208, 28, -589491, 6750208, 29, -1113778, 6815744, 21, -1048242, 6815744, 22, -982706, 6815744, 23, -917170, 6815744, 24, -851634, 6815744, 25, -786098, 6815744, 26, -720562, 6815744, 27, -655026, 6815744, 28, -589490, 6815744, 29, -1113777, 6881280, 21, -1048241, 6881280, 22, -982705, 6881280, 23, -917169, 6881280, 24, -851633, 6881280, 25, -786097, 6881280, 26, -720561, 6881280, 27, -655025, 6881280, 28, -589489, 6881280, 29, -1113776, 6946816, 21, -1048240, 6946816, 22, -982704, 6946816, 23, -917168, 6946816, 24, -851632, 6946816, 25, -786096, 6946816, 26, -720560, 6946816, 27, -655024, 6946816, 28, -589488, 6946816, 29, -1113775, 7012352, 21, -1048239, 7012352, 22, -982703, 7012352, 23, -917167, 7012352, 24, -851631, 7012352, 25, -786095, 7012352, 26, -720559, 7012352, 27, -655023, 7012352, 28, -589487, 7012352, 29, -1113774, 7077888, 21, -1048238, 7077888, 22, -982702, 7077888, 23, -917166, 7077888, 24, -851630, 7077888, 25, -786094, 7077888, 26, -720558, 7077888, 27, -655022, 7077888, 28, -589486, 7077888, 29, -1113773, 7143424, 21, -1048237, 7143424, 22, -982701, 7143424, 23, -917165, 7143424, 24, -851629, 7143424, 25, -786093, 7143424, 26, -720557, 7143424, 27, -655021, 7143424, 28, -589485, 7143424, 29, -1113772, 7208960, 21, -1048236, 7208960, 22, -982700, 7208960, 23, -917164, 7208960, 24, -851628, 7208960, 25, -786092, 7208960, 26, -720556, 7208960, 27, -655020, 7208960, 28, -589484, 7208960, 29, -1113771, 7274496, 21, -1048235, 7274496, 22, -982699, 7274496, 23)
 
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 7
+position = Vector2(-225, 16)
+scale = Vector2(2.5, 2.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6.799997, -84.8)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_1vft4")
+
 [node name="Player" parent="." instance=ExtResource("6_m2ldq")]
 z_index = 2
 position = Vector2(-545, 41)
@@ -15468,6 +15590,24 @@ scale = Vector2(3, 3)
 position = Vector2(-3, -63.666668)
 scale = Vector2(0.6666667, 0.6666667)
 position_smoothing_enabled = true
+
+[node name="village_elder" type="CharacterBody2D" parent="."]
+z_index = 20
+position = Vector2(-98.99999, -13)
+scale = Vector2(1.7, 1.7)
+script = ExtResource("8_1vft4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="village_elder"]
+position = Vector2(-19, 0)
+scale = Vector2(0.28, 0.28)
+sprite_frames = SubResource("SpriteFrames_m2ldq")
+animation = &"idle"
+frame_progress = 0.47381714
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="village_elder"]
+position = Vector2(-25.882359, 3.5294116)
+shape = SubResource("RectangleShape2D_25fso")
 
 [node name="Housebrick" type="Sprite2D" parent="."]
 position = Vector2(-524, -149)
@@ -15532,7 +15672,7 @@ texture = ExtResource("14_xpeg1")
 
 [node name="man" parent="." instance=ExtResource("15_qiu8h")]
 z_index = 1
-position = Vector2(352, 29)
+position = Vector2(780.00006, 29)
 
 [node name="actionable" parent="man" instance=ExtResource("16_w3qhk")]
 dialogue_start = "start"

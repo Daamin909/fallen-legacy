@@ -1,8 +1,6 @@
 extends CharacterBody2D
-
 @export var speed: float = 250.0
 @export var jump_velocity: float = -250.0
-
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 var target_position: Vector2 = Vector2.ZERO
@@ -14,7 +12,6 @@ func _ready() -> void:
 func move_to(pos: Vector2) -> void:
 	target_position = pos
 	moving = true
-
 
 func _physics_process(delta: float) -> void:
 	var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -45,7 +42,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-
 func should_jump(dir: float) -> bool:
 	var ss = get_world_2d().direct_space_state
 
@@ -66,7 +62,7 @@ func should_jump(dir: float) -> bool:
 		return true
 
 	return false
-
+	
 func _play_idle():
 	if anim.animation != "idle":
 		anim.play("idle")

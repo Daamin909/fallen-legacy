@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgusn3sa7tdx3"]
+[gd_scene load_steps=4 format=3 uid="uid://bgusn3sa7tdx3"]
 
 [ext_resource type="Script" uid="uid://dmqu7amglg3gd" path="res://scripts/popup.gd" id="1_4ebxx"]
+[ext_resource type="FontFile" uid="uid://cu6eysich0nwr" path="res://assets/font/VT323/VT323-Regular.ttf" id="2_cpc1a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ebxx"]
-bg_color = Color(0.20036265, 0.721071, 0.81661314, 1)
+bg_color = Color(6.738305e-07, 0.7239008, 0.71291643, 1)
 
 [node name="Popup" type="CanvasLayer"]
 script = ExtResource("1_4ebxx")
@@ -11,7 +12,7 @@ script = ExtResource("1_4ebxx")
 [node name="Panel" type="Panel" parent="."]
 offset_left = -45.0
 offset_top = -17.0
-offset_right = 282.0
+offset_right = 499.0
 offset_bottom = 16.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -23,3 +24,5 @@ offset_left = 10.0
 offset_top = 3.0
 offset_right = 50.0
 offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("2_cpc1a")
+theme_override_font_sizes/font_size = 24

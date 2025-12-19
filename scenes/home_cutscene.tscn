@@ -1,6 +1,6 @@
 [gd_scene load_steps=68 format=3 uid="uid://c0b5ncachttg8"]
 
-[ext_resource type="Script" uid="uid://nb6beelt5tj8" path="res://scripts/home.gd" id="1_efdlt"]
+[ext_resource type="Script" uid="uid://nb6beelt5tj8" path="res://scripts/home_cutscene.gd" id="1_efdlt"]
 [ext_resource type="Texture2D" uid="uid://cham6ndxkg6xu" path="res://assets/village-interior/environment/tiles/room/tile_wall.png" id="2_vtufg"]
 [ext_resource type="Texture2D" uid="uid://d2qju4ar5p01p" path="res://assets/village-interior/environment/tiles/room/tile_room.png" id="3_adsvs"]
 [ext_resource type="Texture2D" uid="uid://dkg5ovoxi8ix8" path="res://assets/village-interior/environment/tiles/room/obj_indoors.png" id="4_ll1sl"]
@@ -3408,7 +3408,7 @@ position = Vector2(-19, 0)
 scale = Vector2(0.28, 0.28)
 sprite_frames = SubResource("SpriteFrames_yu5fn")
 animation = &"idle"
-frame_progress = 0.47250664
+frame_progress = 0.14175466
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="village_elder"]
 position = Vector2(-13, 4)

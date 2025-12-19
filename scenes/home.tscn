@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://dmf7d6h8cneil"]
 
-[ext_resource type="Script" uid="uid://nb6beelt5tj8" path="res://scripts/home.gd" id="1_mahjx"]
+[ext_resource type="Script" uid="uid://de102j6v2jtgo" path="res://scripts/home.gd" id="1_mahjx"]
 [ext_resource type="Texture2D" uid="uid://cham6ndxkg6xu" path="res://assets/village-interior/environment/tiles/room/tile_wall.png" id="2_4fycn"]
 [ext_resource type="PackedScene" uid="uid://d1hwhi5tf440x" path="res://scenes/player.tscn" id="2_yxilm"]
 [ext_resource type="Texture2D" uid="uid://d2qju4ar5p01p" path="res://assets/village-interior/environment/tiles/room/tile_room.png" id="3_vc333"]
@@ -3016,10 +3016,21 @@ size = Vector2(17, 251)
 
 [node name="home" type="Node2D"]
 script = ExtResource("1_mahjx")
-dialogue_start = null
 
 [node name="Player" parent="." instance=ExtResource("2_yxilm")]
 z_index = 6
+position = Vector2(160.99998, -30.000004)
+scale = Vector2(1.7, 1.7)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(1.1765213, -11.176472)
+rotation = -1.8325958
+zoom = Vector2(3, 3)
+limit_left = -311
+limit_top = -272
+limit_right = 351
+limit_bottom = 49
+limit_smoothed = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8hcg4")
