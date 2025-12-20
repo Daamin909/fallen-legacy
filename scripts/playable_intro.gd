@@ -12,6 +12,7 @@ var home = "res://scenes/home_cutscene.tscn"
 @onready var cam: Camera2D = $Camera2D
 @onready var death: AudioStreamPlayer2D = $death
 @onready var player := $player_playable_intro
+@onready var player_sprite := $player_playable_intro/AnimatedSprite2D
 @onready var dialogue_num := 1
 @onready var bg_music: AudioStreamPlayer2D = $normal_bg_music
 @onready var fight_music: AudioStreamPlayer2D = $fight_music
@@ -163,6 +164,7 @@ func _on_next_thing_ended(_resource) -> void:
 	await _play_dialogue("res://dialogues/dialogue_2.dialogue")
 
 	_shake_camera(180.0)
+	player_sprite.stop()
 	_faint_player()
 	await _play_dialogue("res://dialogues/dialogue_3.dialogue")
 

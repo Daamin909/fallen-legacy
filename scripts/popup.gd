@@ -3,6 +3,7 @@ class_name TipPopup
 
 @onready var panel: Panel = $Panel
 @onready var label: Label = $Panel/Label
+@onready var quest_sound := $Quest
 
 func show_popup(
 	text: String,
@@ -20,7 +21,8 @@ func show_popup(
 	var style := panel.get_theme_stylebox("panel").duplicate()
 	style.bg_color = color
 	panel.add_theme_stylebox_override("panel", style)
-
+	if color == Color("ff7a17"):	
+		quest_sound.play()
 	panel.show()
 	await get_tree().process_frame
 

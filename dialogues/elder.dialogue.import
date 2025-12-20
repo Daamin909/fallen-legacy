@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ph1w326d6dai"
+path="res://.godot/imported/elder.dialogue-2dba707925f2f6d24cb339053585f5b0.tres"
+
+[deps]
+
+source_file="res://dialogues/elder.dialogue"
+dest_files=["res://.godot/imported/elder.dialogue-2dba707925f2f6d24cb339053585f5b0.tres"]
+
+[params]
+
+defaults=true

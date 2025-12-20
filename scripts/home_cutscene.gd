@@ -14,6 +14,7 @@ const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 func _ready():
 	elder_sprite.play("idle")
 	doc_sprite.play("idle")
+	player_sprite.stop()
 	if SceneManager.is_player_position_inside_home_right:
 		player.set_physics_process(false)
 		player_sprite.flip_h = true
@@ -57,6 +58,9 @@ func _do_another_thingy() -> void:
 	player.position = Vector2(287, -75)
 	player.rotation_degrees = 90
 	player_sprite.flip_h = true
+	player_sprite.stop()
+	
+	await get_tree().create_timer(1).timeout
 	SceneManager.change_scene("res://scenes/home.tscn")
 
 	

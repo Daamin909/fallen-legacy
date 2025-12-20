@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://detxrvcscsj3h"
-path="res://.godot/imported/house1.png-592b5d2ad203603e74d476bf5a9f45b1.ctex"
+uid="uid://ckx10gfe737at"
+path="res://.godot/imported/Warrior_Dash_2.png-9cf75e300f01f1671ea7fb4f48d1226b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/houses/house1.png"
-dest_files=["res://.godot/imported/house1.png-592b5d2ad203603e74d476bf5a9f45b1.ctex"]
+source_file="res://assets/Warrior/Individual Sprite/Dash/Warrior_Dash_2.png"
+dest_files=["res://.godot/imported/Warrior_Dash_2.png-9cf75e300f01f1671ea7fb4f48d1226b.ctex"]
 
 [params]
 
