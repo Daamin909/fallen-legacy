@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 
 	if direction != 0:
 		velocity.x = direction * SPEED
-		#anim.flip_h = direction <0
+		anim.flip_h = direction <0
 		if not run_sfx.playing and is_on_floor():
 			run_sfx.play()
 

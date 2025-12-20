@@ -1,27 +1,27 @@
 ~ start
 Village Elder: Aha! there you are.
-#Village Elder: How are you feeling now?
-#- Better
-#	Village Elder: phew
-#	Player: Yeah, I was in a really bad state yesterday.
-#- Not good
-#	Village Elder: Oh, you need to pull through it
-#	Player: I'm ready to!
-#Player: What did you want to tell me about?
-#Village Elder: Master was supposed to have this conversation with you.
-#Village Elder: But since he's no more...
-#Village Elder: I will have to.
-#Player: What is it?
-#Village Elder: There's only one way to end the rule of the Corruptors
-#Player: Oh.. uhh.. w- what is it?
-#Village Elder: That night.. Master did not die
-#Village Elder: There's a reason we didn't find the body.
-#Village Elder: His soul was split into 3 parts, if you remember you saw 3 ghosts.
-#Player: Yes, I did.
-#Village Elder: One of the souls must've come towards you
-#Player: IT DID
-#Village Elder: I don't know about the details, but.. it is what will guide you.
-#Village Elder: Follow the path ahead, and listen to your inner voice.
-#Village Elder: Remember, it will ONLY speak to you- in places of sorrow.
+Village Elder: How are you feeling now?
+- Better
+	Village Elder: phew
+	Player: Yeah, I was in a really bad state yesterday.
+- Not good
+	Village Elder: Oh, you need to pull through it
+	Player: I'm ready to!
+Player: What did you want to tell me about?
+Village Elder: Master was supposed to have this conversation with you.
+Village Elder: But since he's no more...
+Village Elder: I will have to.
+Player: What is it?
+Village Elder: There's only one way to end the rule of the Corruptors
+Player: Oh.. uhh.. w- what is it?
+Village Elder: That night.. Master did not die
+Village Elder: There's a reason we didn't find the body.
+Village Elder: His soul was split into 3 parts, if you remember you saw 3 ghosts.
+Player: Yes, I did.
+Village Elder: One of the souls must've come towards you
+Player: IT DID
+Village Elder: I don't know about the details, but.. it is what will guide you.
+Village Elder: Follow the path ahead, and listen to your inner voice.
+Village Elder: Remember, it will ONLY speak to you- in places of sorrow.
 Village Elder: Farewell, little one.
 => END

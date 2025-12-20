@@ -40,6 +40,7 @@ func _on_start_dialogue_body_entered(body: Node2D) -> void:
 
 func _on_ts_ended(_resource) -> void:
 	SceneManager.preload_scene("res://scenes/graveyard.tscn")
+	elder_sprite.flip_h = false
 	elder.move_to(Vector2(454, 18))
 	await get_tree().create_timer(3).timeout
 	elder.queue_free()
