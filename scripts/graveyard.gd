@@ -30,8 +30,6 @@ func _do_thingy() -> void:
 	var balloon: Node = Balloon.instantiate()
 	get_parent().call_deferred("add_child", balloon)
 	balloon.call_deferred("start", load("res://dialogues/arkblade_reveal_soul.dialogue"), dialogue_start)
-	
-
 	spawn_soul()
 	
 	
@@ -48,4 +46,12 @@ func spawn_soul() -> void:
 
 func _on_end(_resource) -> void:
 	get_tree().queue_delete(soul)
+	PopupManager.show_popup("Quest Added: Find the ArkBlade", 4, 305)
+	player.set_physics_process(true)
 	DialogueManager.dialogue_ended.disconnect(_on_end)
+
+
+func _on_detect_end_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		SceneManager.change_scene("res://scenes/dungeons.tscn")
+ # Replace with function body.
