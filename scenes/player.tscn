@@ -123,7 +123,6 @@ texture_filter = 1
 position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_cs1tg")
 animation = &"idle"
-flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -18.5)

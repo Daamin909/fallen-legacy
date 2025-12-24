@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://rx7qtynxanbk"
+path="res://.godot/imported/arkblade_reveal_soul.dialogue-7177b4e870cb24105013681ad4f0595f.tres"
+
+[deps]
+
+source_file="res://dialogues/arkblade_reveal_soul.dialogue"
+dest_files=["res://.godot/imported/arkblade_reveal_soul.dialogue-7177b4e870cb24105013681ad4f0595f.tres"]
+
+[params]
+
+defaults=true
