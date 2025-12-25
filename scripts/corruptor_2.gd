@@ -12,7 +12,7 @@ signal health_changed(current: int, max: int)
 signal died
 
 
-@export var max_health := 200
+@export var max_health := 10
 var health := max_health
 var is_dead := false
 
@@ -30,6 +30,12 @@ func take_damage(amount: int, knockback := Vector2.ZERO):
 func die():
 	is_dead = true
 	emit_signal("died")
+	var sword_area = get_parent().get_node("SwordArea")
+	var sword = get_parent().get_node("SwordArea/Sword")
+	var sword_shape = get_parent().get_node("SwordArea/CollisionShape2D")
+	sword_area.visible = true
+	sword.visible = true
+	sword_area.monitoring = true
 	queue_free()
 	
 var player: CharacterBody2D = null

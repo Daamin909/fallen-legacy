@@ -18,7 +18,6 @@ var jumps_left = MAX_JUMPS
 
 func _ready() -> void:
 	hitbox.monitoring = false
-	print("Enemy UI found:", get_tree().get_first_node_in_group("enemy_ui"))
 
 
 func _physics_process(delta: float) -> void:

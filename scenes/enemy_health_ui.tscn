@@ -23,17 +23,3 @@ theme = SubResource("Theme_3xjmf")
 theme_override_styles/background = SubResource("StyleBoxFlat_vhstk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3xjmf")
 value = 100.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="ProgressBar"]
-script = ExtResource("1_3xjmf")
-
-[node name="ProgressBar" type="ProgressBar" parent="ProgressBar/CanvasLayer"]
-visible = false
-anchors_preset = -1
-anchor_left = 0.25
-anchor_right = 0.75
-offset_left = 13.0
-offset_top = -53.0
-offset_right = 17.0
-offset_bottom = -26.0
-value = 100.0

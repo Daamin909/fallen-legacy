@@ -8,7 +8,6 @@ func _ready():
 	add_to_group("enemy_ui")
 
 func show_enemy(enemy: Enemy):
-	print("Tracking enemy:", enemy)
 
 	if current_enemy:
 		disconnect_enemy()
