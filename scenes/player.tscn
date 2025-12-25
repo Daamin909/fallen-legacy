@@ -74,7 +74,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("13_g5jhy")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 8.0
 }, {
@@ -176,7 +176,6 @@ texture_filter = 1
 position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_cs1tg")
 animation = &"attack"
-frame_progress = 0.94179046
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -18.5)
@@ -193,3 +192,5 @@ collision_mask = 128
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActionableFinder"]
 position = Vector2(-0.5, -18.25)
 shape = SubResource("RectangleShape2D_qhqgy")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

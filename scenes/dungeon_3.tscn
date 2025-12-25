@@ -742,6 +742,19 @@ size = Vector2(2221, 255)
 [node name="dungeon_3" type="Node2D"]
 script = ExtResource("1_1seds")
 
+[node name="Player" parent="." instance=ExtResource("1_562f2")]
+z_index = 2
+position = Vector2(62, 179)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(6, -93)
+zoom = Vector2(2.1, 2.1)
+limit_left = 4
+limit_top = -68
+limit_right = 1150
+limit_bottom = 850
+position_smoothing_enabled = true
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-11, 176)
 scale = Vector2(1.2, 1.2)
@@ -761,20 +774,6 @@ layer_1/tile_data = PackedInt32Array(458755, 327680, 23, 524291, 327680, 24, 589
 [node name="Corruptor" parent="." instance=ExtResource("3_562f2")]
 position = Vector2(953, 184)
 scale = Vector2(1.5, 1.5)
-
-[node name="Player" parent="." instance=ExtResource("1_562f2")]
-z_index = 2
-position = Vector2(22, 172)
-scale = Vector2(1.2, 1.2)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(4.1666665, -67.5)
-zoom = Vector2(2, 2)
-limit_left = 3
-limit_top = -61
-limit_right = 1151
-limit_bottom = 850
-position_smoothing_enabled = true
 
 [node name="void" type="Area2D" parent="."]
 position = Vector2(8, 264)
