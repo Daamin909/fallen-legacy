@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cuabp5wrgfl12" path="res://assets/stringstar/brotato chips.png" id="5_f4ox2"]
 [ext_resource type="Texture2D" uid="uid://bxocrheyyuj3h" path="res://assets/stringstar/broseph stalin.png" id="6_gcky3"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f4ox2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8sax4"]
 texture = ExtResource("4_parnt")
 0:0/0 = 0
 1:0/0 = 0
@@ -205,7 +205,7 @@ texture = ExtResource("4_parnt")
 
 [sub_resource type="TileSet" id="TileSet_gcky3"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_f4ox2")
+sources/0 = SubResource("TileSetAtlasSource_8sax4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcky3"]
 size = Vector2(324, 20)

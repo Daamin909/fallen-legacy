@@ -6,6 +6,7 @@ const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 @onready var master := $master
 
 var soul: Node2D
+var done_once = false
 
 func _ready() -> void:
 	master.visible = false
@@ -19,6 +20,9 @@ func _on_detect_body_entered(body: Node2D) -> void:
 		_do_thingy()
  
 func _do_thingy() -> void:
+	if done_once:
+		return
+	done_once = true
 	DialogueManager.dialogue_ended.connect(_on_end)
 	player_sprite.play("idle")
 	player.set_physics_process(false)

@@ -26,9 +26,6 @@ func change_scene(path: String) -> void:
 	get_tree().change_scene_to_packed(packed)
 
 
-#
-# INTERNAL ASYNC LOADING — Godot 4.5 syntax
-#
 func _load_async(path: String):
 	var err = ResourceLoader.load_threaded_request(path)
 	if err != OK:
