@@ -12,12 +12,12 @@ func _ready():
 	PlayerData.health_changed.connect(update_hearts)
 	update_hearts(PlayerData.health, PlayerData.max_health)
 
-func update_hearts(current: int, max: int):
+func update_hearts(current: int, max_a: int):
 	# Clear old hearts
 	for child in hearts.get_children():
 		child.queue_free()
 
-	var max_hearts := int(ceil(float(max) / health_per_heart))
+	var max_hearts := int(ceil(float(max_a) / health_per_heart))
 	var current_hearts := int(ceil(float(current) / health_per_heart))
 
 	for i in max_hearts:

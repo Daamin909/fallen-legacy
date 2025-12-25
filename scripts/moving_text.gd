@@ -12,7 +12,7 @@ func _ready():
 	add_theme_stylebox_override("panel", style)
 
 	var tween = create_tween()
-	tween.tween_property(label, "position:y", -200, 23.5) # change ts
+	tween.tween_property(label, "position:y", -200, 1.5) # change ts
 
 	tween.finished.connect(_on_text_scroll_done)
 

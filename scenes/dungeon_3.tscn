@@ -737,7 +737,7 @@ sources/0 = SubResource("TileSetAtlasSource_5j2g5")
 sources/1 = SubResource("TileSetAtlasSource_562f2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1seds"]
-size = Vector2(1153, 255)
+size = Vector2(2221, 255)
 
 [node name="dungeon_3" type="Node2D"]
 script = ExtResource("1_1seds")
@@ -774,14 +774,14 @@ limit_left = 2
 limit_top = -62
 limit_right = 1150
 limit_bottom = 600
-limit_smoothed = true
+position_smoothing_enabled = true
 
 [node name="void" type="Area2D" parent="."]
 position = Vector2(8, 264)
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="void"]
-position = Vector2(565, 434.5)
+position = Vector2(633.5, 434.5)
 shape = SubResource("RectangleShape2D_1seds")
 
 [connection signal="body_entered" from="void" to="." method="_on_void_body_entered"]
