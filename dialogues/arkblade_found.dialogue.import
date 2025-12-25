@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://jr87grva630m"
+path="res://.godot/imported/arkblade_found.dialogue-2819b7f6c56552701cb215ac9d54e966.tres"
+
+[deps]
+
+source_file="res://dialogues/arkblade_found.dialogue"
+dest_files=["res://.godot/imported/arkblade_found.dialogue-2819b7f6c56552701cb215ac9d54e966.tres"]
+
+[params]
+
+defaults=true

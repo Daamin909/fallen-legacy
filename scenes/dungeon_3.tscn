@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://nn41my8pdtsp"]
+[gd_scene load_steps=16 format=3 uid="uid://nn41my8pdtsp"]
 
 [ext_resource type="Script" uid="uid://c0nstferf8sqy" path="res://scripts/dungeon_3.gd" id="1_1seds"]
 [ext_resource type="PackedScene" uid="uid://d1hwhi5tf440x" path="res://scenes/player.tscn" id="1_562f2"]
 [ext_resource type="Texture2D" uid="uid://crcjdbdw23obd" path="res://assets/dungeon/Tilesetv3.png" id="1_t06ri"]
 [ext_resource type="Texture2D" uid="uid://x8c5u3bpvt2h" path="res://assets/dungeon/spr_torch.png" id="2_5j2g5"]
 [ext_resource type="PackedScene" uid="uid://cnxq77xxcl712" path="res://scenes/corruptor_2.tscn" id="3_562f2"]
+[ext_resource type="PackedScene" uid="uid://v8atg30iy5e6" path="res://scenes/master.tscn" id="3_diujw"]
 [ext_resource type="Texture2D" uid="uid://by4jio3k2q7o0" path="res://assets/custom/swords.png" id="5_lb6g2"]
 [ext_resource type="PackedScene" uid="uid://b80qmqodrmeav" path="res://scenes/enemy_health_ui.tscn" id="6_bufm8"]
 
@@ -744,6 +745,9 @@ size = Vector2(2221, 255)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lb6g2"]
 size = Vector2(41, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_diujw"]
+size = Vector2(28, 119)
+
 [node name="dungeon_3" type="Node2D"]
 script = ExtResource("1_1seds")
 
@@ -759,6 +763,11 @@ limit_top = -68
 limit_right = 1150
 limit_bottom = 850
 position_smoothing_enabled = true
+
+[node name="master" parent="." instance=ExtResource("3_diujw")]
+z_index = 3
+position = Vector2(1112, 180)
+scale = Vector2(1.3, 1.3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-11, 176)
@@ -791,6 +800,7 @@ shape = SubResource("RectangleShape2D_1seds")
 [node name="EnemyHealthUI" parent="." instance=ExtResource("6_bufm8")]
 
 [node name="SwordArea" type="Area2D" parent="."]
+visible = false
 position = Vector2(578, 157)
 collision_mask = 4
 
@@ -799,8 +809,18 @@ position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_lb6g2")
 
 [node name="Sword" type="Sprite2D" parent="SwordArea"]
+visible = false
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5_lb6g2")
 
+[node name="EndDialogue" type="Area2D" parent="."]
+position = Vector2(956, 167)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndDialogue"]
+position = Vector2(-4, -49.5)
+shape = SubResource("RectangleShape2D_diujw")
+
 [connection signal="body_entered" from="void" to="." method="_on_void_body_entered"]
 [connection signal="body_entered" from="SwordArea" to="." method="_on_sword_area_body_entered"]
+[connection signal="body_entered" from="EndDialogue" to="." method="_on_end_dialogue_body_entered"]

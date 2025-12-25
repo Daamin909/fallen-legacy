@@ -34,9 +34,9 @@ func disconnect_enemy():
 	current_enemy = null
 	bar.visible = false
 
-func _on_health_changed(current: int, max: int):
-	print("UI received health:", current, "/", max)
-	bar.max_value = max
+func _on_health_changed(current: int, max_a: int):
+	print("UI received health:", current, "/", max_a)
+	bar.max_value = max_a
 	bar.value = max(current, 0)
 
 func _on_enemy_died():

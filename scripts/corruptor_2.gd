@@ -30,6 +30,8 @@ func take_damage(amount: int, knockback := Vector2.ZERO):
 func die():
 	is_dead = true
 	emit_signal("died")
+	var health_bar = get_parent().get_node("EnemyHealthUI")
+	get_tree().queue_delete(health_bar)
 	var sword_area = get_parent().get_node("SwordArea")
 	var sword = get_parent().get_node("SwordArea/Sword")
 	var sword_shape = get_parent().get_node("SwordArea/CollisionShape2D")

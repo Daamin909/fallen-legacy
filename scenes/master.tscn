@@ -304,7 +304,7 @@ script = ExtResource("1_q3f5g")
 texture_filter = 1
 position = Vector2(-1, -36)
 sprite_frames = SubResource("SpriteFrames_cs1tg")
-animation = &"attack"
+animation = &"idle"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
