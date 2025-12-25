@@ -1,7 +1,10 @@
 extends Node
 
 @export var is_player_position_inside_home_right = true
+@export var graveyard_done = true
 var cached_scenes := {}
+
+
 
 func preload_scene(path: String, async: bool = false) -> void:
 	if cached_scenes.has(path):

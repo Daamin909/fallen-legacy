@@ -82,3 +82,8 @@ func spawn_soul() -> void:
 	soul.visible = true
 	get_parent().call_deferred("add_child", soul)
 	master.call_deferred("queue_free")
+
+
+func _on_change_scene_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		SceneManager.change_scene("res://scenes/dungeon_4.tscn")

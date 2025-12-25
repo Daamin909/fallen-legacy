@@ -286,6 +286,24 @@ texture = ExtResource("6_gcky3")
 position = Vector2(287, -175)
 texture = ExtResource("6_gcky3")
 
+[node name="ChangeScene" type="Area2D" parent="."]
+position = Vector2(-9, 0)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeScene"]
+position = Vector2(4.7683716e-06, 32)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_gcky3")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(589, 0)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(4.7683716e-06, 32)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_gcky3")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-9, 0)
 collision_mask = 4
@@ -311,5 +329,6 @@ collision_mask = 4
 position = Vector2(0, -155.5)
 shape = SubResource("RectangleShape2D_7y5ee")
 
+[connection signal="body_entered" from="ChangeScene" to="." method="_on_change_scene_body_entered"]
 [connection signal="body_entered" from="DetectEnd" to="." method="_on_detect_end_body_entered"]
 [connection signal="body_entered" from="Detect" to="." method="_on_detect_body_entered"]

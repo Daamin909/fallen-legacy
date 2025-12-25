@@ -4,19 +4,26 @@ const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 @onready var player := $Player
 @onready var player_sprite := $Player/AnimatedSprite2D
 @onready var master := $master
-
+@onready var change_scene := $ChangeScene
+@onready var blocker = $StaticBody2D
 var soul: Node2D
 var done_once = false
 
 func _ready() -> void:
-	master.visible = false
-	pass # Replace with function body.
+	change_scene.monitoring = SceneManager.graveyard_done
+	if SceneManager.graveyard_done:
+		SceneManager.preload_scene("res://scenes/home_village.tscn")
+		get_tree().queue_delete(blocker)
+		player.position = Vector2(550, 170)
+		get_tree().queue_delete(master)
+	else:
+		master.visible = false
 
 func _process(_delta: float) -> void:
 	pass
 	
 func _on_detect_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
+	if body is CharacterBody2D and not SceneManager.graveyard_done:
 		_do_thingy()
  
 func _do_thingy() -> void:
@@ -48,5 +55,11 @@ func _on_end(_resource) -> void:
 	DialogueManager.dialogue_ended.disconnect(_on_end)
 
 func _on_detect_end_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
+	if body is CharacterBody2D and not SceneManager.graveyard_done:
+		SceneManager.graveyard_done = true
 		SceneManager.change_scene("res://scenes/dungeon_1.tscn")
+
+
+func _on_change_scene_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		SceneManager.change_scene("res://scenes/home_village.tscn") # Replace with function body.
