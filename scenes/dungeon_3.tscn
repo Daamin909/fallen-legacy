@@ -770,10 +770,10 @@ scale = Vector2(1.2, 1.2)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(4.1666665, -67.5)
 zoom = Vector2(2, 2)
-limit_left = 2
-limit_top = -62
-limit_right = 1150
-limit_bottom = 600
+limit_left = 3
+limit_top = -61
+limit_right = 1151
+limit_bottom = 850
 position_smoothing_enabled = true
 
 [node name="void" type="Area2D" parent="."]
