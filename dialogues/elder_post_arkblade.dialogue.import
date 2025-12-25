@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bqcmrey6aj7na"
+path="res://.godot/imported/elder_post_arkblade.dialogue-684a828fa1777c21a50e65ce455252d1.tres"
+
+[deps]
+
+source_file="res://dialogues/elder_post_arkblade.dialogue"
+dest_files=["res://.godot/imported/elder_post_arkblade.dialogue-684a828fa1777c21a50e65ce455252d1.tres"]
+
+[params]
+
+defaults=true

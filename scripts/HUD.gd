@@ -8,12 +8,12 @@ extends CanvasLayer
 @onready var hurt = $hurt
 @onready var hearts := $Hearts
 
+
 func _ready():
 	PlayerData.health_changed.connect(update_hearts)
 	update_hearts(PlayerData.health, PlayerData.max_health)
 
 func update_hearts(current: int, max_a: int):
-	# Clear old hearts
 	for child in hearts.get_children():
 		child.queue_free()
 
