@@ -2,18 +2,23 @@ extends CharacterBody2D
 
 var SPEED = 250.0
 const JUMP_VELOCITY = -300.0
-const MAX_JUMPS = 2  
+const MAX_JUMPS = 2
 
 @onready var anim = $AnimatedSprite2D
 @onready var run_sfx = $RunSFX
 @onready var actionable_finder = $ActionableFinder
 @onready var collision_shape = $CollisionShape2D
+@onready var hitbox: Area2D = $AttackHitbox
 
 var is_attacking := false
 var can_attack := true
 
 
 var jumps_left = MAX_JUMPS
+
+func _ready() -> void:
+	hitbox.monitoring = false
+	print("Enemy UI found:", get_tree().get_first_node_in_group("enemy_ui"))
 
 
 func _physics_process(delta: float) -> void:
@@ -73,20 +78,34 @@ func cancel_attack():
 	else:
 		anim.play("run" if Input.get_axis("ui_left", "ui_right") != 0 else "idle")
 
-
 func start_attack():
 	is_attacking = true
 	can_attack = false
-	velocity.x = 0   
+	velocity.x = 0
 	anim.play("attack")
+	hitbox.monitoring = true
+	
+func end_attack():
+	is_attacking = false
+	can_attack = true
+	hitbox.monitoring = false
+
 
 func _on_animated_sprite_2d_animation_finished():
 	if anim.animation == "attack" and is_attacking:
 		is_attacking = false
 		can_attack = true
+		end_attack()
 
 func wants_to_cancel_attack() -> bool:
 	return (
 		Input.get_axis("ui_left", "ui_right") != 0
 		or Input.is_action_just_pressed("ui_accept")
 	)
+
+func _on_attack_hitbox_body_entered(body):
+	if body is Enemy:
+		body.take_damage(10)
+		var ui = get_tree().get_first_node_in_group("enemy_ui")
+		if ui:
+			ui.show_enemy(body)
