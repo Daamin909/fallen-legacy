@@ -8,4 +8,4 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_button_pressed() -> void:
-	SceneManager.change_scene("res://scenes/playable_intro.tscn")
+	SceneManager.change_scene("res://scenes/menu.tscn")

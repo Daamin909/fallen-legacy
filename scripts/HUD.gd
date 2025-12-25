@@ -4,6 +4,8 @@ extends CanvasLayer
 @export var heart_empty: Texture2D
 @export var health_per_heart := 1
 
+@onready var death = $death
+@onready var hurt = $hurt
 @onready var hearts := $Hearts
 
 func _ready():
