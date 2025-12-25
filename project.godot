@@ -19,6 +19,8 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 SceneManager="*res://scripts/scene_manager.gd"
 PopupManager="*res://scripts/popup_manager.gd"
+PlayerData="*res://scripts/player_data.gd"
+HUD="*res://scenes/HUD.tscn"
 
 [dialogue_manager]
 
