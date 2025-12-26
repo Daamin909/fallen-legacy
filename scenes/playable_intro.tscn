@@ -1551,7 +1551,7 @@ stream = ExtResource("17_iex05")
 
 [node name="normal_bg_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_iex05")
-volume_db = -30.42
+volume_db = -15.028
 autoplay = true
 
 [node name="fight_music" type="AudioStreamPlayer2D" parent="."]

@@ -90,6 +90,6 @@ func _on_baka_ended(_resource) -> void:
 	await get_tree().create_timer(3).timeout
 	elder.queue_free()
 	player.set_physics_process(true)
-	PopupManager.show_popup("Quest Added: Go to the abandoned village.", 4, 410)
+	PopupManager.show_popup("Quest Added: Go to the Corrupted Realm.", 4, 410)
 	DialogueManager.dialogue_ended.disconnect(_on_baka_ended)
 	start_dialogue2.monitoring = false
