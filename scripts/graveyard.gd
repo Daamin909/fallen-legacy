@@ -63,7 +63,6 @@ func _on_detect_end_body_entered(body: Node2D) -> void:
 		SceneManager.graveyard_done = true
 		SceneManager.change_scene("res://scenes/dungeon_1.tscn")
 
-
 func _on_change_scene_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		SceneManager.change_scene("res://scenes/home_village.tscn") # Replace with function body.

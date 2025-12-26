@@ -9,7 +9,7 @@ const MAX_JUMPS = 2
 @onready var actionable_finder = $ActionableFinder
 @onready var collision_shape = $CollisionShape2D
 @onready var hitbox: Area2D = $AttackHitbox
-
+@onready var attack_sound:= $attack
 var is_attacking := false
 var can_attack := true
 
@@ -67,9 +67,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			anim.play("fall")
 
-	move_and_slide()
+	move_and_slide() 
 
 func cancel_attack():
+	attack_sound.stop()
 	is_attacking = false
 	can_attack = true
 	if not is_on_floor():
@@ -82,6 +83,7 @@ func start_attack():
 	can_attack = false
 	velocity.x = 0
 	anim.play("attack")
+	attack_sound.play()
 	hitbox.monitoring = true
 	
 func end_attack():

@@ -1,6 +1,7 @@
 extends Node2D
 const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 var home = "res://scenes/home.tscn"
+
 @export var dialogue_start: String = "start"
 @onready var elder = $village_elder
 @onready var elder_sprite = $village_elder/AnimatedSprite2D
@@ -8,6 +9,7 @@ var home = "res://scenes/home.tscn"
 @onready var player_sprite = $Player/AnimatedSprite2D
 @onready var start_dialogue = $start_dialogue
 @onready var start_dialogue2 = $start_dialogue2
+
 var has_started_dialogue_once = false
 
 func _ready():
@@ -62,7 +64,10 @@ func _on_ts_ended(_resource) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not body is CharacterBody2D:
 		return
-	SceneManager.change_scene("res://scenes/graveyard.tscn")
+	if SceneManager.post_arkblade_done:
+		SceneManager.change_scene("res://scenes/fields.tscn")
+	else:
+		SceneManager.change_scene("res://scenes/graveyard.tscn")
 
 
 func _on_start_dialogue_2_body_entered(body: Node2D) -> void:

@@ -10,7 +10,6 @@ extends Node2D
 const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 var soul: Node2D
 
-
 var been_there = false
 var finalissima = false
 
