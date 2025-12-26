@@ -146,7 +146,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5kguw")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 10.0
 }, {
@@ -163,7 +163,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1ty7u")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 7.0
 }, {
@@ -180,7 +180,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ppive")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -227,7 +227,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_aob25")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"run",
 "speed": 9.0
 }]
 
@@ -243,8 +243,7 @@ script = ExtResource("1_k2w1n")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(6, -30)
 sprite_frames = SubResource("SpriteFrames_q0cf6")
-animation = &"idle"
-frame_progress = 0.27646786
+animation = &"attack"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -252,11 +251,12 @@ position = Vector2(7, -21)
 shape = SubResource("RectangleShape2D_fu18q")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
-collision_mask = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_k2w1n")
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
