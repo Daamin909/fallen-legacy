@@ -13,12 +13,13 @@ var has_started_dialogue_once = false
 func _ready():
 	start_dialogue2.monitoring = false
 	if SceneManager.graveyard_done:
-		player.position = Vector2(4030, 30)
+		player.position = Vector2(4752, 30)
 		elder.position = Vector2(3234, 21)
 		elder_sprite.flip_h = !elder_sprite.flip_h
 		start_dialogue.monitoring = false
 		start_dialogue2.monitoring = true
-	
+	if SceneManager.post_arkblade_done:
+		get_tree().queue_delete(elder)
 	player.SPEED = 400.0
 	elder_sprite.play("idle")
 	var p = $AudioStreamPlayer2D
@@ -65,8 +66,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_start_dialogue_2_body_entered(body: Node2D) -> void:
-	if not body is CharacterBody2D:
+	if not body is CharacterBody2D :
 		return
+	if SceneManager.post_arkblade_done:
+		return
+	SceneManager.post_arkblade_done = true
 	player.set_physics_process(false)
 	player_sprite.play("idle")
 	

@@ -20,6 +20,8 @@ func _ready() -> void:
 	else:
 		get_tree().queue_delete(blocker2)
 		master.visible = false
+	if SceneManager.post_arkblade_done:
+		player.position = Vector2(23, 172)
 
 func _process(_delta: float) -> void:
 	pass
