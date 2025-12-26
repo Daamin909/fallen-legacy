@@ -7,6 +7,8 @@ const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 @onready var change_scene := $ChangeScene
 @onready var blocker = $StaticBody2D
 @onready var blocker2 = $StaticBody2D2
+@onready var executioner = $Executioner
+@onready var executioner_sprite = $Executioner/AnimatedSprite2D
 var soul: Node2D
 var done_once = false
 
