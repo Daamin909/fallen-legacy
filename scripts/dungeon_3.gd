@@ -26,7 +26,7 @@ func _on_void_body_entered(body: Node2D) -> void:
 		PlayerData.take_damage(1)
 
 
-func _on_sword_area_body_entered(body: Node2D) -> void:
+func _on_sword_area_body_entered(_body: Node2D) -> void:
 	if been_there:
 		return
 	been_there = true

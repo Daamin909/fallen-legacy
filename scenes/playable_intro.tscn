@@ -16,8 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://ce7uh0nf3qo3x" path="res://assets/enemies/Skeleton/Walk.png" id="14_iex05"]
 [ext_resource type="AudioStream" uid="uid://cyj6vel7qeuy2" path="res://assets/custom/sword-swing.mp3" id="15_uxbkw"]
 [ext_resource type="AudioStream" uid="uid://d2jrrh8g5twm7" path="res://assets/custom/death.mp3" id="16_cp6n7"]
-[ext_resource type="AudioStream" uid="uid://cjleu3illhgl3" path="res://assets/custom/cave.wav" id="17_cp6n7"]
 [ext_resource type="AudioStream" uid="uid://dij2wuobafboo" path="res://assets/custom/fall.mp3" id="17_iex05"]
+[ext_resource type="AudioStream" uid="uid://uk00tgs57dan" path="res://assets/custom/action_0.wav" id="18_iex05"]
 [ext_resource type="AudioStream" uid="uid://ca0l47b1kjqbf" path="res://assets/custom/groove.wav" id="18_uq3bw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
@@ -1550,8 +1550,8 @@ stream = ExtResource("16_cp6n7")
 stream = ExtResource("17_iex05")
 
 [node name="normal_bg_music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("17_cp6n7")
-volume_db = -7.196
+stream = ExtResource("18_iex05")
+volume_db = -30.42
 autoplay = true
 
 [node name="fight_music" type="AudioStreamPlayer2D" parent="."]

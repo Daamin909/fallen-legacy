@@ -6,6 +6,7 @@ const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 @onready var master := $master
 @onready var change_scene := $ChangeScene
 @onready var blocker = $StaticBody2D
+@onready var blocker2 = $StaticBody2D2
 var soul: Node2D
 var done_once = false
 
@@ -17,6 +18,7 @@ func _ready() -> void:
 		player.position = Vector2(550, 170)
 		get_tree().queue_delete(master)
 	else:
+		get_tree().queue_delete(blocker2)
 		master.visible = false
 
 func _process(_delta: float) -> void:

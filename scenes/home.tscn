@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmf7d6h8cneil"]
+[gd_scene load_steps=21 format=3 uid="uid://dmf7d6h8cneil"]
 
 [ext_resource type="Script" uid="uid://de102j6v2jtgo" path="res://scripts/home.gd" id="1_mahjx"]
 [ext_resource type="Texture2D" uid="uid://cham6ndxkg6xu" path="res://assets/village-interior/environment/tiles/room/tile_wall.png" id="2_4fycn"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d2qju4ar5p01p" path="res://assets/village-interior/environment/tiles/room/tile_room.png" id="3_vc333"]
 [ext_resource type="Texture2D" uid="uid://dkg5ovoxi8ix8" path="res://assets/village-interior/environment/tiles/room/obj_indoors.png" id="4_hhep5"]
 [ext_resource type="Texture2D" uid="uid://v4q5lckg71pt" path="res://assets/custom/bed.png" id="5_cmjdo"]
+[ext_resource type="AudioStream" uid="uid://d3xy2xar3gwvh" path="res://assets/custom/bgmusic.mp3" id="7_mahjx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ov0p"]
 texture = ExtResource("2_4fycn")
@@ -3089,5 +3090,10 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-348.5, -146.5)
 shape = SubResource("RectangleShape2D_yxilm")
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_mahjx")
+volume_db = -12.621
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,7 +1,7 @@
 extends Node
 
 @export var is_player_position_inside_home_right = true
-@export var graveyard_done = true
+@export var graveyard_done = false
 var cached_scenes := {}
 
 

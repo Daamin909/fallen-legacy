@@ -64,7 +64,7 @@ func should_jump(dir: float) -> bool:
 	var front_hit = ss.intersect_ray(front_query)
 	if not front_hit == {}:
 		return true
-
+	
 	return false
 
 func _play_idle():

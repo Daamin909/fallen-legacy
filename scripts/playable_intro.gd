@@ -46,6 +46,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _ready() -> void:
+	HUD.show()
 	rnd.randomize()
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	var balloon: Node = Balloon.instantiate()
@@ -62,8 +63,6 @@ func _on_dialogue_ended(_resource):
 	balloon.call_deferred("start", load("res://dialogues/playable_intro_confront.dialogue"), dialogue_start)
 	DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
 	DialogueManager.dialogue_ended.connect(_on_confront_ended)
-	#master.move_to(Vector2(70,200))
-
 	
 func _on_confront_ended(_resource):
 	DialogueManager.dialogue_ended.disconnect(_on_confront_ended)
@@ -74,8 +73,6 @@ func _on_confront_ended(_resource):
 	await SceneManager.preload_scene(home, true)
 	await SceneManager.preload_scene("res://scenes/home_village.tscn", true)
 
-
-	# First Attack
 	await get_tree().create_timer(0.5).timeout
 	corruptor_anim.play("attack")
 	await get_tree().create_timer(0.45).timeout
@@ -84,7 +81,6 @@ func _on_confront_ended(_resource):
 	await get_tree().create_timer(0.2).timeout
 	master_anim.play("hurt")
 	
-	# Second Attack
 	await get_tree().create_timer(0.3).timeout
 	attack_sound.play()
 	_shake_camera(5.0)
@@ -93,7 +89,6 @@ func _on_confront_ended(_resource):
 	await get_tree().create_timer(0.2).timeout
 	corruptor_anim.play("hurt")		
 	
-	# Third Attack
 	await get_tree().create_timer(0.5	).timeout
 	corruptor_anim.play("attack")
 	master_anim.play("idle")

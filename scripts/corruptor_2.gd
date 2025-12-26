@@ -9,7 +9,8 @@ class_name Enemy
 @onready var detector = $PlayerDetector
 
 signal health_changed(current: int, max: int)
-signal /
+signal died
+
 @export var max_health := 20
 var health := max_health
 var is_dead := false
@@ -32,7 +33,6 @@ func die():
 	get_tree().queue_delete(health_bar)
 	var sword_area = get_parent().get_node("SwordArea")
 	var sword = get_parent().get_node("SwordArea/Sword")
-	var sword_shape = get_parent().get_node("SwordArea/CollisionShape2D")
 	sword_area.visible = true
 	sword.visible = true
 	sword_area.monitoring = true

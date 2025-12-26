@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://csk4kbw355oqf"]
+[gd_scene load_steps=9 format=3 uid="uid://csk4kbw355oqf"]
 
 [ext_resource type="Texture2D" uid="uid://crcjdbdw23obd" path="res://assets/dungeon/Tilesetv3.png" id="1_f80u4"]
 [ext_resource type="Script" uid="uid://dm0yis01r4ko7" path="res://scripts/dungeon_4.gd" id="1_y82gu"]
 [ext_resource type="PackedScene" uid="uid://d1hwhi5tf440x" path="res://scenes/player.tscn" id="2_y82gu"]
+[ext_resource type="AudioStream" uid="uid://uk00tgs57dan" path="res://assets/custom/action_0.wav" id="4_eu5k7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eu5k7"]
 texture = ExtResource("1_f80u4")
@@ -783,6 +784,12 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="void"]
 position = Vector2(526, 383)
 shape = SubResource("RectangleShape2D_igym6")
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(578, 157)
+stream = ExtResource("4_eu5k7")
+volume_db = -14.136
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="void" to="." method="_on_void_body_entered"]

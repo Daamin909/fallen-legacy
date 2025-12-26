@@ -25,7 +25,8 @@ offset_bottom = 40.0
 script = ExtResource("1_xeevv")
 
 [node name="Black" type="Sprite2D" parent="."]
-position = Vector2(536, 574)
+position = Vector2(576.00006, 388)
+scale = Vector2(1.0023762, 0.40790814)
 texture = ExtResource("2_tbwuq")
 
 [node name="Label" type="Label" parent="."]

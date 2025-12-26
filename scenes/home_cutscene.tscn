@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://c0b5ncachttg8"]
+[gd_scene load_steps=86 format=3 uid="uid://c0b5ncachttg8"]
 
 [ext_resource type="Script" uid="uid://nb6beelt5tj8" path="res://scripts/home_cutscene.gd" id="1_efdlt"]
 [ext_resource type="Texture2D" uid="uid://cham6ndxkg6xu" path="res://assets/village-interior/environment/tiles/room/tile_wall.png" id="2_vtufg"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d4ce81s6mujda" path="res://assets/custom/village_eder.png" id="9_xlimi"]
 [ext_resource type="Script" uid="uid://c7iaxy1gacmtx" path="res://scripts/player_playable_intro.gd" id="10_3rbkg"]
 [ext_resource type="Texture2D" uid="uid://cwr4pr3d8u811" path="res://assets/Warrior/SpriteSheet/Warrior_Sheet-Effect.png" id="11_efdlt"]
+[ext_resource type="AudioStream" uid="uid://d3xy2xar3gwvh" path="res://assets/custom/bgmusic.mp3" id="12_vtufg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ov0p"]
 texture = ExtResource("2_vtufg")
@@ -3570,6 +3571,12 @@ limit_top = -272
 limit_right = 351
 limit_bottom = 49
 limit_smoothed = true
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 0)
+stream = ExtResource("12_vtufg")
+volume_db = -12.621
+autoplay = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

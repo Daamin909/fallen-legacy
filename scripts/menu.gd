@@ -1,8 +1,7 @@
 extends Control
 
-# Path to your first level scene
-
 func _ready():
+	HUD.hide()
 	$VBoxContainer/Button.pressed.connect(on_start_pressed)
 	$VBoxContainer/Button2.pressed.connect(on_quit_pressed)
 

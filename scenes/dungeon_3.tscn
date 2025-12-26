@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://nn41my8pdtsp"]
+[gd_scene load_steps=17 format=3 uid="uid://nn41my8pdtsp"]
 
 [ext_resource type="Script" uid="uid://c0nstferf8sqy" path="res://scripts/dungeon_3.gd" id="1_1seds"]
 [ext_resource type="PackedScene" uid="uid://d1hwhi5tf440x" path="res://scenes/player.tscn" id="1_562f2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://v8atg30iy5e6" path="res://scenes/master.tscn" id="3_diujw"]
 [ext_resource type="Texture2D" uid="uid://by4jio3k2q7o0" path="res://assets/custom/swords.png" id="5_lb6g2"]
 [ext_resource type="PackedScene" uid="uid://b80qmqodrmeav" path="res://scenes/enemy_health_ui.tscn" id="6_bufm8"]
+[ext_resource type="AudioStream" uid="uid://uk00tgs57dan" path="res://assets/custom/action_0.wav" id="8_rxf8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_562f2"]
 size = Vector2(20, 148.33333)
@@ -802,6 +803,12 @@ position = Vector2(633.5, 434.5)
 shape = SubResource("RectangleShape2D_1seds")
 
 [node name="EnemyHealthUI" parent="." instance=ExtResource("6_bufm8")]
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(578, 157)
+stream = ExtResource("8_rxf8o")
+volume_db = -14.136
+autoplay = true
 
 [node name="SwordArea" type="Area2D" parent="."]
 visible = false
