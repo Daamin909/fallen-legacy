@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2ayve3kvnici"]
+[gd_scene load_steps=14 format=3 uid="uid://c2ayve3kvnici"]
 
 [ext_resource type="PackedScene" uid="uid://d1hwhi5tf440x" path="res://scenes/player.tscn" id="1_7o2vs"]
 [ext_resource type="Script" uid="uid://xxt15nw06jy" path="res://scripts/graveyard.gd" id="1_7y5ee"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cuabp5wrgfl12" path="res://assets/stringstar/brotato chips.png" id="5_f4ox2"]
 [ext_resource type="AudioStream" uid="uid://uk00tgs57dan" path="res://assets/custom/action_0.wav" id="5_x7tdj"]
 [ext_resource type="Texture2D" uid="uid://bxocrheyyuj3h" path="res://assets/stringstar/broseph stalin.png" id="6_gcky3"]
-[ext_resource type="PackedScene" uid="uid://ctrrpdmd6wk04" path="res://scenes/executioner.tscn" id="10_q8rmc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8sax4"]
 texture = ExtResource("4_parnt")
@@ -336,9 +335,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
 position = Vector2(0, -155.5)
 shape = SubResource("RectangleShape2D_7y5ee")
-
-[node name="Executioner" parent="." instance=ExtResource("10_q8rmc")]
-position = Vector2(375, 68)
 
 [connection signal="body_entered" from="ChangeScene" to="." method="_on_change_scene_body_entered"]
 [connection signal="body_entered" from="DetectEnd" to="." method="_on_detect_end_body_entered"]

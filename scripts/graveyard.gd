@@ -12,6 +12,7 @@ const Balloon = preload("res://scenes/helpers/balloon/balloon.tscn")
 var soul: Node2D
 var done_once = false
 
+
 func _ready() -> void:
 	change_scene.monitoring = SceneManager.graveyard_done
 	if SceneManager.graveyard_done:

@@ -7,7 +7,7 @@ var state: State = State.IDLE
 @export var speed := 120
 @export var attack_range := 40
 @export var damage := 1
-@export var max_health := 20
+@export var max_health := 100
 var has_hit := false
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
