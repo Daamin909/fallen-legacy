@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://btpbta24uuej0"]
+[gd_scene load_steps=6 format=3 uid="uid://btpbta24uuej0"]
 
 [ext_resource type="Script" uid="uid://cnbw8fdyc6gkt" path="res://scripts/game_over.gd" id="1_xeevv"]
+[ext_resource type="Texture2D" uid="uid://bi1s82mbucuhl" path="res://assets/custom/black.jpg" id="2_tbwuq"]
+[ext_resource type="FontFile" uid="uid://cu6eysich0nwr" path="res://assets/font/VT323/VT323-Regular.ttf" id="3_7m3ot"]
+[ext_resource type="Texture2D" uid="uid://dhij2koj0fsu8" path="res://assets/custom/Fallen Legacy - Title Page.png" id="3_racf3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3hpu"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
 
 [node name="game_over" type="Control"]
 layout_mode = 3
@@ -10,22 +24,42 @@ offset_right = 41.0
 offset_bottom = 40.0
 script = ExtResource("1_xeevv")
 
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(536, 574)
+texture = ExtResource("2_tbwuq")
+
 [node name="Label" type="Label" parent="."]
+z_index = 3
 layout_mode = 0
-offset_left = 469.0
-offset_top = 288.0
-offset_right = 729.0
-offset_bottom = 355.0
-theme_override_font_sizes/font_size = 48
+offset_left = 456.0
+offset_top = 304.0
+offset_right = 716.0
+offset_bottom = 371.0
+theme_override_fonts/font = ExtResource("3_7m3ot")
+theme_override_font_sizes/font_size = 64
 text = "Game Over"
 
 [node name="Button" type="Button" parent="."]
+z_index = 3
 layout_mode = 0
-offset_left = 542.0
-offset_top = 384.0
-offset_right = 655.0
-offset_bottom = 434.0
-theme_override_font_sizes/font_size = 30
+offset_left = 502.0
+offset_top = 393.0
+offset_right = 636.0
+offset_bottom = 446.0
+theme_override_fonts/font = ExtResource("3_7m3ot")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_v3hpu")
 text = "Restart"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(580, 367)
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(0.9, 0.9)
+
+[node name="FallenLegacyTitlePage" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.5411765)
+position = Vector2(580, 367)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_racf3")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

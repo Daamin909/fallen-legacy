@@ -9,10 +9,8 @@ class_name Enemy
 @onready var detector = $PlayerDetector
 
 signal health_changed(current: int, max: int)
-signal died
-
-
-@export var max_health := 10
+signal /
+@export var max_health := 20
 var health := max_health
 var is_dead := false
 

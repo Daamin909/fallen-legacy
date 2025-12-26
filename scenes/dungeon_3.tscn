@@ -788,6 +788,10 @@ layer_1/tile_data = PackedInt32Array(458755, 327680, 23, 524291, 327680, 24, 589
 [node name="Corruptor" parent="." instance=ExtResource("3_562f2")]
 position = Vector2(953, 184)
 scale = Vector2(1.5, 1.5)
+speed = null
+attack_range = null
+damage = null
+max_health = null
 
 [node name="void" type="Area2D" parent="."]
 position = Vector2(8, 264)
@@ -822,7 +826,7 @@ position = Vector2(-4, -49.5)
 shape = SubResource("RectangleShape2D_diujw")
 
 [node name="ChangeScene" type="Area2D" parent="."]
-position = Vector2(1181, 179)
+position = Vector2(1156, 252)
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeScene"]
